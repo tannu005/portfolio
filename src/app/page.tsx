@@ -1,10 +1,13 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { ArrowDown } from 'lucide-react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import { ProjectVisual } from '@/components/Visuals/ProjectVisual';
+import { ThreeBackground } from '@/components/Visuals/ThreeBackground';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -65,9 +68,9 @@ const slides: SlideData[] = [
       'Full-stack AI news search and vector parsing platform. React/Vite/Three.js frontend, Express backend, LangChain, Google Gemini API, and Inngest background event processor. Visualizes interactive document nodes in a responsive 3D force-directed canvas graph.',
     tags: ['React', 'Three.js (R3F)', 'Node.js', 'Express', 'LangChain', 'Gemini API', 'Inngest', 'Vector Embedding'],
     href: '/projects/newsai',
-    liveHref: 'https://github.com/tannu005/newsai',
+    liveHref: 'https://newsai-two.vercel.app/',
     githubHref: 'https://github.com/tannu005/newsai',
-    liveLabel: 'View on GitHub',
+    liveLabel: 'newsai-two.vercel.app',
   },
   {
     id: 5,
@@ -139,7 +142,7 @@ export default function Home() {
         scrollTrigger: {
           trigger: '.intro',
           scrub: 1,
-          start: 'top bottom',
+          start: 'top top',
           end: 'bottom top',
         },
       })
@@ -174,15 +177,28 @@ export default function Home() {
           .from(slide.querySelectorAll('.slide__scroll-link'), {
             y: 200, duration: 3, ease: 'power4',
           }, 0.4)
-          .to(slide.querySelectorAll('.slide__scroll-line'), {
-            scaleY: 0.6, transformOrigin: 'bottom left', duration: 2.5, ease: 'elastic(1,0.5)',
+          .to(slide.querySelectorAll('.slide__scroll-link'), {
+            opacity: 1, duration: 2.5, ease: 'power2',
           }, 1.4);
       });
 
-      // Image parallax
+      // Image & Visual parallax
       document.querySelectorAll('.slide').forEach((slide) => {
         gsap.fromTo(
           slide.querySelectorAll('.col__image-wrap'),
+          { y: '-30vh' },
+          {
+            y: '30vh',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: slide,
+              scrub: true,
+              start: 'top bottom',
+            },
+          }
+        );
+        gsap.fromTo(
+          slide.querySelectorAll('.col__visual-wrap'),
           { y: '-30vh' },
           {
             y: '30vh',
@@ -207,21 +223,57 @@ export default function Home() {
         y: '20vh',
         ease: 'sine',
       });
+
+      // Active nav highlighting
+      document.querySelectorAll('.slide').forEach((slide) => {
+        const slideId = slide.id.replace('slide-', '');
+        const navLink = document.querySelector(`.gsap-nav a[data-slide="${slideId}"]`);
+        
+        ScrollTrigger.create({
+          trigger: slide,
+          start: 'top center',
+          end: 'bottom center',
+          onEnter: () => {
+            if (navLink) {
+              document.querySelectorAll('.gsap-nav a').forEach(a => a.classList.remove('nav-active'));
+              navLink.classList.add('nav-active');
+            }
+          },
+          onEnterBack: () => {
+            if (navLink) {
+              document.querySelectorAll('.gsap-nav a').forEach(a => a.classList.remove('nav-active'));
+              navLink.classList.add('nav-active');
+            }
+          },
+          onLeave: () => {
+             if(navLink) navLink.classList.remove('nav-active');
+          },
+          onLeaveBack: () => {
+             if(navLink) navLink.classList.remove('nav-active');
+          }
+        });
+      });
     }, stage);
 
     // Scroll-link interactions
     document.querySelectorAll('.slide__scroll-link').forEach((link, index) => {
-      const line = link.querySelector('.slide__scroll-line');
       link.addEventListener('click', (e) => {
         e.preventDefault();
         slideIdRef.current = index + 1;
-        gsap.to(window, { duration: 2, scrollTo: { y: '#slide-' + (index + 2) }, ease: 'power2.inOut' });
+        const targetId = link.getAttribute('data-target');
+        if (targetId) {
+          gsap.to(window, { duration: 2, scrollTo: { y: targetId }, ease: 'power2.inOut' });
+        }
       });
-      link.addEventListener('mouseover', () => {
-        gsap.to(line, { y: 40, transformOrigin: 'bottom center', duration: 0.6, ease: 'power4' });
+      link.addEventListener('mousemove', (e: Event) => {
+        const mouseEvent = e as MouseEvent;
+        const rect = link.getBoundingClientRect();
+        const x = mouseEvent.clientX - rect.left - rect.width / 2;
+        const y = mouseEvent.clientY - rect.top - rect.height / 2;
+        gsap.to(link, { x: x * 0.4, y: y * 0.4, duration: 0.4, ease: 'power2.out' });
       });
-      link.addEventListener('mouseout', () => {
-        gsap.to(line, { y: 0, transformOrigin: 'bottom center', duration: 0.6, ease: 'power4' });
+      link.addEventListener('mouseleave', () => {
+        gsap.to(link, { x: 0, y: 0, duration: 0.8, ease: 'elastic.out(1, 0.3)' });
       });
     });
 
@@ -277,15 +329,15 @@ export default function Home() {
     <>
       {/* GSAP Fixed Header */}
       <header className="gsap-header">
-        <a href="/" className="gsap-logo">Tannu Yadav</a>
+        <Link href="/" className="gsap-logo">Tannu Yadav</Link>
         <nav className="gsap-nav">
-          <a href="/projects/lendswift">LendSwift</a>
-          <a href="/projects/stock-screener">Screener</a>
-          <a href="/projects/navix">Navix</a>
-          <a href="/projects/newsai">NewsAI</a>
-          <a href="/projects/screengard">ScreenGuard</a>
-          <a href="/experience">Experience</a>
-          <a href="/about">About</a>
+          <Link href="/projects/lendswift" data-slide="1">LendSwift</Link>
+          <Link href="/projects/stock-screener" data-slide="2">Screener</Link>
+          <Link href="/projects/navix" data-slide="3">Navix</Link>
+          <Link href="/projects/newsai" data-slide="4">NewsAI</Link>
+          <Link href="/projects/screengard" data-slide="6">ScreenGuard</Link>
+          <Link href="/experience" data-slide="5">Experience</Link>
+          <Link href="/about">About</Link>
           <a href="https://github.com/tannu005" target="_blank" rel="noopener noreferrer">GitHub↗</a>
         </nav>
       </header>
@@ -313,7 +365,7 @@ export default function Home() {
             </h1>
 
             <p className="intro__txt">
-              <strong>Full-Stack Product Engineer.</strong> I ship production systems that handle real-world constraints — not tutorials. Five deployed projects. Eight vulnerability classes prevented. Five thousand records filtered in under 200 milliseconds.
+              <strong>Full-Stack Product Engineer.</strong> I ship production systems that handle real-world constraints — not tutorials. Six deployed projects. Eight vulnerability classes prevented. Five thousand records filtered in under 200 milliseconds.
             </p>
 
             <div className="intro__metrics">
@@ -321,11 +373,11 @@ export default function Home() {
               <span className="intro__metric">30× Faster Forms</span>
               <span className="intro__metric">10K Concurrent Users</span>
               <span className="intro__metric">0 SQL Injections</span>
-              <span className="intro__metric">5 Shipped Systems</span>
+              <span className="intro__metric">6 Shipped Systems</span>
             </div>
 
             {/* CTA row */}
-            <div className="intro__cta" style={{ display: 'flex', gap: '16px', marginTop: '24px', marginLeft: '20vw' }}>
+            <div className="intro__cta" style={{ display: 'flex', gap: '16px', marginTop: '24px', marginRight: '1.5vw' }}>
               <a href="https://github.com/tannu005" target="_blank" rel="noopener noreferrer" style={{
                 fontSize: '12px', color: 'var(--muted)', textDecoration: 'none',
                 textTransform: 'uppercase', letterSpacing: '1.5px',
@@ -357,16 +409,19 @@ export default function Home() {
           </div>
 
           {/* Parallax images */}
-          <img
-            className="intro__img intro__img--1"
-            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-            alt="Code editor"
-          />
-          <img
-            className="intro__img intro__img--2"
-            src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-            alt="Developer laptop"
-          />
+          {/* eslint-disable @next/next/no-img-element */}
+          <div className="intro__images">
+            <img
+              className="intro__img intro__img--1"
+              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              alt="Code editor"
+            />
+            <img
+              className="intro__img intro__img--2"
+              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              alt="Developer laptop"
+            />
+          </div>
         </section>
 
         {/* ── PROJECT / EXPERIENCE SLIDES ───────────────────── */}
@@ -376,6 +431,7 @@ export default function Home() {
             className={`slide slide--${slide.id}`}
             id={`slide-${slide.id}`}
           >
+            <ThreeBackground projectId={slide.id} />
             <div className="col col--1">
               <div className={`col__content col__content--${slide.id}`}>
 
@@ -390,10 +446,10 @@ export default function Home() {
 
                 <div className="col__content-wrap">
                   <p className="col__content-txt">{slide.description}</p>
-                  <a href={slide.href} className="slide-link" aria-label={`View ${slide.title.join(' ')} details`}>
+                  <Link href={slide.href} className="slide-link" aria-label={`View ${slide.title.join(' ')} details`}>
                     <div className="slide-link__circ"></div>
                     <div className="slide-link__line"></div>
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Tags */}
@@ -445,7 +501,7 @@ export default function Home() {
                       GitHub↗
                     </a>
                   )}
-                  <a
+                  <Link
                     href={slide.href}
                     style={{
                       fontSize: '11px', color: 'var(--muted)', textDecoration: 'none',
@@ -456,28 +512,31 @@ export default function Home() {
                     onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
                   >
                     Case Study→
-                  </a>
+                  </Link>
                 </div>
               </div>
 
-              {/* Scroll-to-next block */}
-              {index < slides.length - 1 && (
-                <a
-                  href={`#slide-${slide.id + 1}`}
-                  className="slide__scroll-link"
-                  aria-label="Next slide"
-                >
-                  <div className="slide__scroll-line"></div>
-                </a>
-              )}
             </div>
 
-            {/* Right column — parallax image */}
+            {/* Right column — interactive 3D visual */}
             <div className="col col--2">
-              <div className="col__image-wrap">
+              <div className="col__visual-wrap" style={{ position: 'absolute', left: 0, top: '-30vh', width: '100%', height: '160vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <ProjectVisual projectId={slide.id} />
               </div>
             </div>
+
+            {/* Scroll-to-next block */}
+            {index < slides.length - 1 && (
+              <button
+                data-target={`#slide-${slides[index + 1].id}`}
+                className="slide__scroll-link"
+                aria-label="Next slide"
+                style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}
+              >
+                <div className="scroll-diamond"></div>
+                <div className="scroll-beam"></div>
+              </button>
+            )}
           </section>
         ))}
 

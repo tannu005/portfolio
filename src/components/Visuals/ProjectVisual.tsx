@@ -1,9 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { 
-  ShieldCheck, Database, LineChart, Network, 
-  Map, Scan, Terminal, Activity, Zap
+  ShieldCheck, Database, Network, 
+  Map, Scan, Activity, Zap
 } from 'lucide-react';
 
 const amber = '#f59e0b';
@@ -11,22 +11,61 @@ const darkSurface = 'rgba(20, 20, 20, 0.8)';
 const border = 'rgba(245, 158, 11, 0.2)';
 
 export function ProjectVisual({ projectId }: { projectId: number }) {
-  // Common container style for all visual abstracts
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
+  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
   const containerStyle: React.CSSProperties = {
     width: '100%',
     height: '100%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    background: 'var(--dark)',
+    background: 'transparent', // Make transparent to see 3D background
     position: 'relative',
     overflow: 'hidden',
+    perspective: 1200,
+  };
+
+  const innerStyle = {
+    width: '100%',
+    height: '100%',
+    position: 'absolute' as const,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    transformStyle: 'preserve-3d' as const,
+    rotateX,
+    rotateY
   };
 
   // 1: LendSwift
   if (projectId === 1) {
     return (
-      <div style={containerStyle} className="visual-lendswift">
+      <div style={containerStyle} className="visual-lendswift" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <motion.div style={innerStyle}>
         <motion.div 
           className="vault-core"
           animate={{ rotate: 360 }}
@@ -48,7 +87,8 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
             background: darkSurface, border: `1px solid ${border}`, borderRadius: '24px',
             padding: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center',
             boxShadow: '0 20px 40px rgba(0,0,0,0.5), 0 0 40px rgba(245,158,11,0.1)',
-            zIndex: 10, backdropFilter: 'blur(10px)'
+            zIndex: 10, backdropFilter: 'blur(10px)',
+            transform: 'translateZ(50px)'
           }}
         >
           <motion.div
@@ -66,6 +106,7 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
             <span style={{ fontSize: '12px', color: 'var(--muted)', fontWeight: 600 }}>PostgreSQL Secure Enclave</span>
           </div>
         </motion.div>
+        </motion.div>
       </div>
     );
   }
@@ -73,7 +114,8 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
   // 2: Stock Screener
   if (projectId === 2) {
     return (
-      <div style={containerStyle} className="visual-screener">
+      <div style={containerStyle} className="visual-screener" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <motion.div style={innerStyle}>
         {/* Animated Grid Background */}
         <div style={{
           position: 'absolute', inset: 0, 
@@ -82,7 +124,7 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
         }} />
         
         <motion.div 
-          style={{ width: '80%', height: '50%', position: 'relative' }}
+          style={{ width: '80%', height: '50%', position: 'relative', transform: 'translateZ(30px)' }}
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}
         >
           {/* Mock Candlesticks */}
@@ -116,10 +158,11 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
           </svg>
         </motion.div>
 
-        <div style={{ position: 'absolute', top: '10%', right: '10%', display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.05)', padding: '8px 16px', borderRadius: '999px', border: `1px solid rgba(255,255,255,0.1)` }}>
+        <div style={{ position: 'absolute', top: '10%', right: '10%', display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.05)', padding: '8px 16px', borderRadius: '999px', border: `1px solid rgba(255,255,255,0.1)`, transform: 'translateZ(60px)' }}>
           <Activity size={14} color="var(--green)" />
           <span style={{ fontSize: '11px', color: 'var(--green)', fontFamily: 'var(--font-space), monospace', fontWeight: 600 }}>&lt;200ms LATENCY</span>
         </div>
+        </motion.div>
       </div>
     );
   }
@@ -127,7 +170,8 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
   // 3: Navix AI (Neural Router)
   if (projectId === 3) {
     return (
-      <div style={containerStyle} className="visual-navix">
+      <div style={containerStyle} className="visual-navix" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <motion.div style={innerStyle}>
         <svg style={{ position: 'absolute', width: '400px', height: '400px', overflow: 'visible' }}>
           <motion.path d="M 200,200 L 50,50" stroke="var(--border)" strokeWidth={2} strokeDasharray="4 4" />
           <motion.path d="M 200,200 L 350,50" stroke="var(--border)" strokeWidth={2} strokeDasharray="4 4" />
@@ -144,23 +188,24 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
         </svg>
 
         {/* Nodes */}
-        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 10 }}>
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%) translateZ(40px)', zIndex: 10 }}>
           <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 4, repeat: Infinity }}>
             <Network size={56} color="var(--light)" strokeWidth={1} style={{ filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.4))' }} />
           </motion.div>
         </div>
 
         {/* Node Labels */}
-        <div style={{ position: 'absolute', top: '25%', left: '20%', transform: 'translate(-50%, -50%)' }}>
+        <div style={{ position: 'absolute', top: '25%', left: '20%', transform: 'translate(-50%, -50%) translateZ(20px)' }}>
           <div style={{ background: 'var(--surface)', padding: '10px 20px', borderRadius: '12px', border: '1px solid var(--violet)', color: 'var(--violet)', fontFamily: 'var(--font-space), monospace', fontSize: '12px', fontWeight: 700, boxShadow: '0 0 20px rgba(168,85,247,0.2)' }}>
             Gemini
           </div>
         </div>
-        <div style={{ position: 'absolute', top: '25%', right: '20%', transform: 'translate(50%, -50%)' }}>
+        <div style={{ position: 'absolute', top: '25%', right: '20%', transform: 'translate(50%, -50%) translateZ(60px)' }}>
           <div style={{ background: 'var(--surface)', padding: '10px 20px', borderRadius: '12px', border: `1px solid ${amber}`, color: amber, fontFamily: 'var(--font-space), monospace', fontSize: '12px', fontWeight: 700, boxShadow: '0 0 20px rgba(245,158,11,0.2)' }}>
             Groq Llama-3
           </div>
         </div>
+        </motion.div>
       </div>
     );
   }
@@ -168,7 +213,8 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
   // 4: NewsAI
   if (projectId === 4) {
     return (
-      <div style={containerStyle} className="visual-newsai">
+      <div style={containerStyle} className="visual-newsai" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <motion.div style={innerStyle}>
         {/* Floating Vector Nodes */}
         {Array.from({ length: 15 }).map((_, i) => (
           <motion.div
@@ -180,13 +226,14 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
             transition={{ duration: 10 + (Math.sin(i) * 0.5 + 0.5) * 10, repeat: Infinity, ease: "linear" }}
             style={{
               position: 'absolute',
-              top: `${(Math.sin(i * 1234) * 0.5 + 0.5) * 80 + 10}%`,
-              left: `${(Math.cos(i * 4321) * 0.5 + 0.5) * 80 + 10}%`,
-              width: `${(Math.sin(i * 321) * 0.5 + 0.5) * 6 + 2}px`,
-              height: `${(Math.sin(i * 321) * 0.5 + 0.5) * 6 + 2}px`,
+              top: `${((Math.sin(i * 1234) * 0.5 + 0.5) * 80 + 10).toFixed(2)}%`,
+              left: `${((Math.cos(i * 4321) * 0.5 + 0.5) * 80 + 10).toFixed(2)}%`,
+              width: `${((Math.sin(i * 321) * 0.5 + 0.5) * 6 + 2).toFixed(2)}px`,
+              height: `${((Math.sin(i * 321) * 0.5 + 0.5) * 6 + 2).toFixed(2)}px`,
               background: i % 3 === 0 ? amber : 'rgba(255,255,255,0.3)',
               borderRadius: '50%',
               boxShadow: i % 3 === 0 ? '0 0 10px rgba(245,158,11,0.8)' : 'none',
+              transform: `translateZ(${i * 5}px)`
             }}
           />
         ))}
@@ -195,7 +242,7 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1 }}
-          style={{ zIndex: 10 }}
+          style={{ zIndex: 10, transform: 'translateZ(50px)' }}
         >
           <div style={{ width: '200px', height: '200px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Database size={48} color={amber} strokeWidth={1} />
@@ -204,6 +251,7 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
             VECTOR EMBEDDING
           </div>
         </motion.div>
+        </motion.div>
       </div>
     );
   }
@@ -211,7 +259,8 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
   // 5: India Space Lab (GIS)
   if (projectId === 5) {
     return (
-      <div style={containerStyle} className="visual-gis">
+      <div style={containerStyle} className="visual-gis" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <motion.div style={innerStyle}>
         {/* Topographic Lines Abstract */}
         <motion.div
           animate={{ rotateX: [60, 65, 60], rotateZ: [0, 360] }}
@@ -230,15 +279,16 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
         <motion.div
           animate={{ top: ['0%', '100%', '0%'] }}
           transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-          style={{ position: 'absolute', left: 0, width: '100%', height: '2px', background: 'var(--green)', opacity: 0.5, boxShadow: '0 0 20px rgba(34, 197, 94, 0.8)' }}
+          style={{ position: 'absolute', left: 0, width: '100%', height: '2px', background: 'var(--green)', opacity: 0.5, boxShadow: '0 0 20px rgba(34, 197, 94, 0.8)', transform: 'translateZ(10px)' }}
         />
 
-        <div style={{ position: 'absolute', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', background: 'rgba(20,20,20,0.6)', padding: '24px 32px', borderRadius: '16px', border: '1px solid rgba(34, 197, 94, 0.2)', backdropFilter: 'blur(8px)' }}>
+        <div style={{ position: 'absolute', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', background: 'rgba(20,20,20,0.6)', padding: '24px 32px', borderRadius: '16px', border: '1px solid rgba(34, 197, 94, 0.2)', backdropFilter: 'blur(8px)', transform: 'translateZ(40px)' }}>
           <Map size={40} color="var(--green)" strokeWidth={1.5} />
           <div style={{ fontFamily: 'var(--font-space), monospace', fontSize: '12px', color: 'var(--green)', letterSpacing: '1px' }}>
             GEOSPATIAL ANALYSIS
           </div>
         </div>
+        </motion.div>
       </div>
     );
   }
@@ -246,19 +296,20 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
   // 6: ScreenGuard
   if (projectId === 6) {
     return (
-      <div style={containerStyle} className="visual-screenguard">
+      <div style={containerStyle} className="visual-screenguard" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <motion.div style={innerStyle}>
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          style={{ position: 'absolute', width: '300px', height: '300px', borderRadius: '50%', border: `1px dashed ${amber}` }}
+          style={{ position: 'absolute', width: '300px', height: '300px', borderRadius: '50%', border: `1px dashed ${amber}`, transform: 'translateZ(10px)' }}
         />
         <motion.div
           animate={{ scale: [0.8, 1.4, 0.8], opacity: [0.1, 0.3, 0.1] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          style={{ position: 'absolute', width: '400px', height: '400px', borderRadius: '50%', border: `1px solid ${amber}` }}
+          style={{ position: 'absolute', width: '400px', height: '400px', borderRadius: '50%', border: `1px solid ${amber}`, transform: 'translateZ(-10px)' }}
         />
 
-        <div style={{ position: 'relative', width: '160px', height: '160px' }}>
+        <div style={{ position: 'relative', width: '160px', height: '160px', transform: 'translateZ(50px)' }}>
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
@@ -271,10 +322,11 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
           </div>
         </div>
         
-        <div style={{ position: 'absolute', bottom: '15%', display: 'flex', gap: '24px', fontFamily: 'var(--font-space), monospace', fontSize: '11px', color: 'var(--muted)' }}>
+        <div style={{ position: 'absolute', bottom: '15%', display: 'flex', gap: '24px', fontFamily: 'var(--font-space), monospace', fontSize: '11px', color: 'var(--muted)', transform: 'translateZ(80px)' }}>
           <div>DISTANCE: <span style={{ color: amber }}>65cm</span></div>
           <div>AGE CLASS: <span style={{ color: amber }}>ADULT</span></div>
         </div>
+        </motion.div>
       </div>
     );
   }
@@ -282,12 +334,13 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
   // 7: Let's Connect
   if (projectId === 7) {
     return (
-      <div style={containerStyle} className="visual-connect">
+      <div style={containerStyle} className="visual-connect" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <motion.div style={innerStyle}>
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          style={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: '12px', width: '340px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.8)' }}
+          style={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: '12px', width: '340px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.8)', transform: 'translateZ(30px)' }}
         >
           {/* Terminal Header */}
           <div style={{ background: '#222', padding: '10px 16px', display: 'flex', gap: '8px', borderBottom: '1px solid #333' }}>
@@ -305,6 +358,7 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
               <span style={{ color: amber }}>$</span> <motion.span animate={{ opacity: [1, 0, 1] }} transition={{ duration: 0.8, repeat: Infinity }}>_</motion.span>
             </div>
           </div>
+        </motion.div>
         </motion.div>
       </div>
     );

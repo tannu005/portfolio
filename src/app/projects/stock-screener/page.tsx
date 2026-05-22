@@ -32,7 +32,7 @@ export default function StockScreenerPage() {
           Stock Screener
         </h1>
         <p style={{ fontSize: '18px', color: '#a8a29e', maxWidth: '42rem', lineHeight: 1.7, marginBottom: '24px' }}>
-          Production-grade real-time market screener. 5,000 records in &lt;200ms via TanStack Virtual's windowed row rendering. Custom Canvas candlestick chart with 5 technical indicators (SMA20/50/200, Bollinger Bands, Volume). 4 API providers — Finnhub, Alpha Vantage, Polygon, IEX Cloud — unified behind a single WebSocket layer pushing 10–20 price updates every 500ms.
+          Production-grade real-time market screener. 5,000 records in &lt;200ms via TanStack Virtual&apos;s windowed row rendering. Custom Canvas candlestick chart with 5 technical indicators (SMA20/50/200, Bollinger Bands, Volume). 4 API providers — Finnhub, Alpha Vantage, Polygon, IEX Cloud — unified behind a single WebSocket layer pushing 10–20 price updates every 500ms.
         </p>
 
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>

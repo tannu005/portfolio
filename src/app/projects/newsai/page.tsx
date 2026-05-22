@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ExternalLink, ArrowLeft, Network, Cpu, Database, Flame } from 'lucide-react';
+import { ExternalLink, ArrowLeft, Network, Database, Flame } from 'lucide-react';
 import Link from 'next/link';
 
 const amber = '#f59e0b';

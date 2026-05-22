@@ -128,7 +128,8 @@ p { margin: 0; }
   transition: color 0.3s;
 }
 
-.gsap-nav a:hover {
+.gsap-nav a:hover,
+.gsap-nav a.nav-active {
   color: var(--accent);
 }
 
@@ -142,10 +143,14 @@ p { margin: 0; }
 }
 
 .intro {
+  height: 100vh;
   position: relative;
-  padding: 5vw;
-  background: radial-gradient(ellipse at 70% 60%, #2d1b00 0%, #0a0a0a 60%);
   overflow: hidden;
+  background: radial-gradient(ellipse at 70% 60%, #2d1b00 0%, #0a0a0a 60%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8%;
 }
 
 /* Noise texture overlay for depth */
@@ -158,9 +163,12 @@ p { margin: 0; }
 }
 
 .intro__content {
-  position: absolute;
-  right: 8%;
-  bottom: 15%;
+  position: relative;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
   z-index: 3;
 }
 
@@ -169,16 +177,19 @@ p { margin: 0; }
     right: auto;
     left: 5%;
     bottom: 8%;
+    width: auto;
+    align-items: flex-start;
+    text-align: left;
   }
 }
 
 .intro__title {
   font-family: var(--font-space), sans-serif;
-  font-size: 16vw;
+  font-size: 12vw;
   font-weight: 700;
-  line-height: 0.88;
+  line-height: 0.9;
   overflow: hidden;
-  letter-spacing: -1.5vw;
+  letter-spacing: -1vw;
   padding-right: 1.5vw;
   color: var(--light);
   margin: 0;
@@ -189,13 +200,20 @@ p { margin: 0; }
   .intro__title {
     font-size: 20vw;
     margin-bottom: 5vh;
+    padding-right: 0;
   }
+}
+
+.intro__images {
+  position: relative;
+  width: 45%;
+  height: 100%;
 }
 
 .intro__img {
   position: absolute;
-  width: 26%;
-  max-width: 320px;
+  width: 75%;
+  max-width: 400px;
   height: auto;
   border-radius: 6px;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
@@ -208,8 +226,8 @@ p { margin: 0; }
 
 .intro__img--1 {
   z-index: 2;
-  left: 8%;
-  bottom: 32%;
+  left: 0;
+  bottom: 10%;
 }
 
 @media all and (max-width: 768px) {
@@ -218,8 +236,8 @@ p { margin: 0; }
 
 .intro__img--2 {
   z-index: 1;
-  left: 22%;
-  bottom: 40%;
+  left: 20%;
+  top: 15%;
 }
 
 @media all and (max-width: 768px) {
@@ -228,7 +246,8 @@ p { margin: 0; }
 
 .intro__txt {
   max-width: 32vw;
-  margin-left: 20vw;
+  margin-left: auto;
+  margin-right: 1.5vw; /* align with title padding */
   font-size: 14px;
   line-height: 1.7;
   color: var(--muted);
@@ -238,6 +257,7 @@ p { margin: 0; }
   .intro__txt {
     max-width: 88vw;
     margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -245,17 +265,22 @@ p { margin: 0; }
   color: var(--accent);
 }
 
+.intro__cta {
+  justify-content: flex-end;
+}
+
 /* Intro Metrics */
 .intro__metrics {
   display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  margin-right: 1.5vw;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
-  margin-left: 20vw;
+  justify-content: flex-end;
 }
 
 @media all and (max-width: 768px) {
-  .intro__metrics { margin-left: 0; }
+  .intro__metrics { margin-left: 0; margin-right: 0; justify-content: flex-start; }
 }
 
 .intro__metric {
@@ -274,6 +299,7 @@ p { margin: 0; }
    ========================================================================== */
 
 .slide {
+  position: relative;
   display: flex;
   align-items: stretch;
   height: 100vh;
@@ -292,7 +318,12 @@ p { margin: 0; }
 
 .col--1 { position: relative; z-index: 1; }
 
-.col--2 { position: relative; overflow: hidden; }
+.col--2 {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+}
 
 @media all and (max-width: 768px) {
   .col--2 { position: absolute; z-index: 0; left: 0; top: 0; }
@@ -338,11 +369,11 @@ p { margin: 0; }
 .col__content-title {
   margin: 0 0 2vw;
   font-family: var(--font-space), sans-serif;
-  font-size: 11vw;
+  font-size: 8.5vw;
   font-weight: 700;
-  letter-spacing: -0.8vw;
+  letter-spacing: -0.5vw;
   color: var(--light);
-  line-height: 0.9;
+  line-height: 0.95;
 }
 
 @media all and (max-width: 768px) {
@@ -422,29 +453,68 @@ p { margin: 0; }
 .line:nth-of-type(even) { margin-top: -1vw; }
 .line__inner { display: block; }
 
-/* Scroll indicator */
+/* Scroll indicator - Futuristic Diamond Data Node */
 .slide__scroll-link {
   position: absolute;
-  right: -113px;
-  bottom: 3.5vw;
-  display: block;
-  width: 140px;
-  height: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 6vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 60px;
+  height: 100px;
+  transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+  z-index: 100;
+  text-decoration: none;
+}
+
+.scroll-diamond {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--accent);
+  transform: rotate(45deg);
+  background: rgba(245, 158, 11, 0.15);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
+  transition: all 0.3s ease;
+  animation: floatDiamond 2s ease-in-out infinite;
+}
+
+.slide__scroll-link:hover .scroll-diamond {
   background: var(--accent);
-  overflow: hidden;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.8);
+  transform: rotate(225deg) scale(1.2);
+}
+
+.scroll-beam {
+  width: 2px;
+  height: 45px;
+  background: linear-gradient(to bottom, var(--accent) 0%, transparent 100%);
+  margin-top: 10px;
+  animation: beamPulse 2.5s infinite;
+  transform-origin: top;
+  opacity: 0.8;
+}
+
+@keyframes floatDiamond {
+  0%, 100% { transform: rotate(45deg) translate(0, 0); }
+  50% { transform: rotate(45deg) translate(4px, 4px); }
+}
+
+@keyframes beamPulse {
+  0% { transform: scaleY(0); opacity: 0; }
+  30% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1) translateY(20px); opacity: 0; }
 }
 
 @media all and (max-width: 768px) {
   .slide__scroll-link { display: none; }
 }
 
-.slide__scroll-line {
-  position: absolute;
-  left: 26px;
-  bottom: 0;
-  width: 1px;
-  height: 100%;
-  background: var(--dark);
+.slide__scroll-link:hover {
+  background: var(--accent-dim);
+  border-color: var(--accent);
 }
 
 /* Tech tags */
@@ -490,8 +560,9 @@ p { margin: 0; }
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: var(--surface);
+  background: linear-gradient(180deg, var(--dark) 0%, var(--surface) 30vh, var(--surface) 100%);
   position: relative;
+  height: 100vh;
 }
 
 .gsap-footer__link {

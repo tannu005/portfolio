@@ -151,7 +151,7 @@ export default function NavixPage() {
       <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '48px' }}>
         <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '8px' }}>CI/CD Pipeline — Zero-Touch Deployments</h2>
         <p style={{ color: '#a8a29e', marginBottom: '24px', lineHeight: 1.7, maxWidth: '52rem' }}>
-          Every push to main is automatically linted, type-checked, built, and deployed. Deployment time: from "whenever I remember to SSH" to under 60 seconds, automatically.
+          Every push to main is automatically linted, type-checked, built, and deployed. Deployment time: from &quot;whenever I remember to SSH&quot; to under 60 seconds, automatically.
         </p>
         <div style={{ background: surface, border: `1px solid ${border}`, borderRadius: '12px', padding: '28px', overflowX: 'auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', minWidth: '480px' }}>

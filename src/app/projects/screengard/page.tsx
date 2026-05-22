@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ExternalLink, ArrowLeft, Eye, EyeOff, ShieldCheck, Cpu } from 'lucide-react';
+import { ExternalLink, ArrowLeft, Eye, ShieldCheck, Cpu } from 'lucide-react';
 import Link from 'next/link';
 
 const amber = '#f59e0b';
@@ -115,7 +115,7 @@ export default function ScreenGuardPage() {
             </div>
             <h3 style={{ color: '#fafaf9', fontSize: '15px', fontWeight: 600, margin: '0 0 10px' }}>Python OpenCV DNN</h3>
             <p style={{ color: '#a8a29e', fontSize: '13px', lineHeight: 1.6, margin: 0 }}>
-              Runs a secondary computer vision validator. Utilizing OpenCV's deep neural net module (SSD ResNet-10 model), it tracks user coordinates from the webcam and classifies age groups using a pre-trained Caffe classifier.
+              Runs a secondary computer vision validator. Utilizing OpenCV&apos;s deep neural net module (SSD ResNet-10 model), it tracks user coordinates from the webcam and classifies age groups using a pre-trained Caffe classifier.
             </p>
           </div>
 
