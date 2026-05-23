@@ -39,7 +39,7 @@ export default function NewsAIPage() {
 
         {/* CTA buttons */}
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-          <a href="https://github.com/tannu005/newsai" target="_blank" rel="noopener noreferrer" style={{
+          <a href="https://newsai-two.vercel.app/" target="_blank" rel="noopener noreferrer" style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 22px',
             background: amber, color: '#0a0a0a', borderRadius: '999px', textDecoration: 'none',
             fontSize: '13px', fontWeight: 700, transition: 'background 0.3s',
@@ -47,7 +47,18 @@ export default function NewsAIPage() {
             onMouseEnter={e => (e.currentTarget.style.background = '#fbbf24')}
             onMouseLeave={e => (e.currentTarget.style.background = amber)}
           >
-            <ExternalLink size={13} /> github.com/tannu005/newsai
+            <ExternalLink size={13} /> newsai-two.vercel.app
+          </a>
+          <a href="https://github.com/tannu005/newsai" target="_blank" rel="noopener noreferrer" style={{
+            display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 22px',
+            background: 'transparent', color: amber, border: `1px solid ${amber}`,
+            borderRadius: '999px', textDecoration: 'none', fontSize: '13px', fontWeight: 700,
+            transition: 'all 0.3s',
+          }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(245,158,11,0.1)'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
+          >
+            <ExternalLink size={13} /> GitHub
           </a>
         </div>
       </motion.div>

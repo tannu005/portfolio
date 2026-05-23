@@ -173,13 +173,7 @@ export default function Home() {
           }, 0.6)
           .from(slide.querySelectorAll('.slide-links-row'), {
             y: 20, opacity: 0, duration: 1.2, ease: 'power4',
-          }, 0.8)
-          .from(slide.querySelectorAll('.slide__scroll-link'), {
-            y: 200, duration: 3, ease: 'power4',
-          }, 0.4)
-          .to(slide.querySelectorAll('.slide__scroll-link'), {
-            opacity: 1, duration: 2.5, ease: 'power2',
-          }, 1.4);
+          }, 0.8);
       });
 
       // Image & Visual parallax
@@ -533,8 +527,9 @@ export default function Home() {
                 aria-label="Next slide"
                 style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}
               >
-                <div className="scroll-diamond"></div>
-                <div className="scroll-beam"></div>
+                <div className="scroll-box">
+                  <ArrowDown size={18} color="var(--accent)" />
+                </div>
               </button>
             )}
           </section>

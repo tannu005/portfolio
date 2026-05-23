@@ -167,14 +167,24 @@ const EmptyScene = () => null;
 export function ThreeBackground({ projectId }: { projectId: number }) {
   const [mounted, setMounted] = React.useState(false);
   const [webglSupported, setWebglSupported] = React.useState(true);
+  const [inView, setInView] = React.useState(false);
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     setMounted(true);
     setWebglSupported(isWebGLAvailable());
+    
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { rootMargin: '300px' } // Load slightly before it comes into view
+    );
+    if (containerRef.current) observer.observe(containerRef.current);
+    
+    return () => observer.disconnect();
   }, []);
 
   if (!mounted || !webglSupported) {
-    return <div style={{ position: 'absolute', inset: 0, zIndex: 0, background: 'transparent' }} />;
+    return <div ref={containerRef} style={{ position: 'absolute', inset: 0, zIndex: 0, background: 'transparent' }} />;
   }
 
   let SceneComponent: React.FC = EmptyScene;
@@ -190,10 +200,12 @@ export function ThreeBackground({ projectId }: { projectId: number }) {
   }
 
   return (
-    <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
-      <Canvas camera={{ position: [0, 0, 6], fov: 45 }} gl={{ powerPreference: 'low-power' }}>
-        <SceneComponent />
-      </Canvas>
+    <div ref={containerRef} style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
+      {inView && (
+        <Canvas camera={{ position: [0, 0, 6], fov: 45 }} gl={{ powerPreference: 'low-power' }}>
+          <SceneComponent />
+        </Canvas>
+      )}
     </div>
   );
 }
