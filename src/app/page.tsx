@@ -381,7 +381,7 @@ export default function Home() {
                 onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
               >GitHub↗</a>
-              <a href="https://linkedin.com/in/tannu-yadav" target="_blank" rel="noopener noreferrer" style={{
+              <a href="https://www.linkedin.com/in/tannu-yadav-06012733a" target="_blank" rel="noopener noreferrer" style={{
                 fontSize: '12px', color: 'var(--muted)', textDecoration: 'none',
                 textTransform: 'uppercase', letterSpacing: '1.5px',
                 borderBottom: '1px solid var(--accent-border)', paddingBottom: '2px',
@@ -547,7 +547,7 @@ export default function Home() {
           <div className="gsap-footer__socials">
             <a href="mailto:ytannu1410@gmail.com">ytannu1410@gmail.com</a>
             <a href="https://github.com/tannu005" target="_blank" rel="noopener noreferrer">github/tannu005</a>
-            <a href="https://linkedin.com/in/tannu-yadav" target="_blank" rel="noopener noreferrer">linkedin/tannu-yadav</a>
+            <a href="https://www.linkedin.com/in/tannu-yadav-06012733a" target="_blank" rel="noopener noreferrer">linkedin/tannu-yadav</a>
           </div>
 
           <a className="gsap-footer__link-top" href="#slide-0">

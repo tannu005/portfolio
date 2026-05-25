@@ -230,7 +230,7 @@ export default function AboutPage() {
             onMouseLeave={e => (e.currentTarget.style.background = amber)}>
             <Mail size={14} /> ytannu1410@gmail.com
           </a>
-          <a href="https://linkedin.com/in/tannu-yadav" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px', border: `1px solid ${border}`, color: '#a8a29e', borderRadius: '999px', textDecoration: 'none', fontSize: '13px', fontWeight: 500, transition: 'all 0.3s' }}
+          <a href="https://www.linkedin.com/in/tannu-yadav-06012733a" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px', border: `1px solid ${border}`, color: '#a8a29e', borderRadius: '999px', textDecoration: 'none', fontSize: '13px', fontWeight: 500, transition: 'all 0.3s' }}
             onMouseEnter={e => { e.currentTarget.style.borderColor = amber; e.currentTarget.style.color = amber; }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = border; e.currentTarget.style.color = '#a8a29e'; }}>
             <Link2 size={14} /> linkedin/tannu-yadav

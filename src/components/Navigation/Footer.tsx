@@ -21,7 +21,7 @@ export function Footer() {
           {[
             { label: 'ytannu1410@gmail.com', href: 'mailto:ytannu1410@gmail.com' },
             { label: 'github/tannu005', href: 'https://github.com/tannu005' },
-            { label: 'linkedin/tannu-yadav', href: 'https://linkedin.com/in/tannu-yadav' },
+            { label: 'linkedin/tannu-yadav', href: 'https://www.linkedin.com/in/tannu-yadav-06012733a' },
           ].map(({ label, href }) => (
             <motion.a key={href} href={href} target={href.startsWith('mailto') ? undefined : '_blank'} rel="noopener noreferrer"
               style={{
