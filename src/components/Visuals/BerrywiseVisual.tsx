@@ -24,7 +24,7 @@ const WiseBerryAvatar = ({ hovered }: { hovered: boolean }) => {
       groupRef.current.rotation.z = Math.sin(time * 2) * 0.05;
 
       // Squash and stretch scale effect on hover (now base scale is smaller)
-      const baseScale = 1.0; // Reduced size significantly
+      const baseScale = 0.75; // Reduced size significantly for portfolio layout
       const targetScaleX = hovered ? baseScale * 1.05 : baseScale;
       const targetScaleY = hovered ? baseScale * 0.95 : baseScale;
       groupRef.current.scale.lerp(new THREE.Vector3(targetScaleX, targetScaleY, targetScaleX), 0.1);
@@ -43,8 +43,8 @@ const WiseBerryAvatar = ({ hovered }: { hovered: boolean }) => {
           <mesh position={[0, 0, 0]}>
             <sphereGeometry args={[1.2, 64, 64]} />
             <MeshDistortMaterial 
-              color={hovered ? "#a855f7" : "#8b5cf6"} 
-              emissive={hovered ? "#c084fc" : "#6d28d9"}
+              color={hovered ? "#fbbf24" : "#f59e0b"} 
+              emissive={hovered ? "#fcd34d" : "#d97706"}
               emissiveIntensity={0.2}
               roughness={0.1}
               metalness={0.3}
@@ -153,7 +153,7 @@ export function BerrywiseVisual() {
           scale={8} 
           size={hovered ? 6 : 3} 
           speed={0.8} 
-          color={hovered ? "#34d399" : "#fb7185"} 
+          color={hovered ? "#fcd34d" : "#f59e0b"} 
           opacity={0.8} 
         />
       </Canvas>

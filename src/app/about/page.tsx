@@ -112,7 +112,7 @@ export default function AboutPage() {
         <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '24px' }}>By the Numbers</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(130px,1fr))', gap: '16px' }}>
           {[
-            { value: '7', label: 'Shipped Systems' },
+            { value: '6+', label: 'Shipped Systems' },
             { value: '8+', label: 'Vulnerabilities Prevented' },
             { value: '<200ms', label: 'Fastest Data Filter' },
             { value: '8+', label: 'External APIs Integrated' },
@@ -190,7 +190,7 @@ export default function AboutPage() {
       <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '56px' }}>
         <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '20px' }}>Certifications</h2>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-          {['Oracle Cloud Infrastructure Foundation Associate', 'AWS Academy Cloud Foundations & Architecting', 'VLSI Design Fundamentals'].map(c => (
+          {['Hedera Hashgraph Developer', 'Oracle Cloud Infrastructure Foundation Associate', 'AWS Academy Cloud Foundations & Architecting', 'VLSI Design Fundamentals'].map(c => (
             <span key={c} style={{ padding: '8px 16px', background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.2)', borderRadius: '8px', fontSize: '13px', color: amber, fontWeight: 500 }}>{c}</span>
           ))}
         </div>

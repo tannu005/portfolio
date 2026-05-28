@@ -380,7 +380,7 @@ export default function Home() {
               <span className="intro__metric">30× Faster Forms</span>
               <span className="intro__metric">10K Concurrent Users</span>
               <span className="intro__metric">0 SQL Injections</span>
-              <span className="intro__metric">6 Shipped Systems</span>
+              <span className="intro__metric">6+ Shipped Systems</span>
             </div>
 
             {/* CTA row */}
