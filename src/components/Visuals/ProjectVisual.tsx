@@ -5,10 +5,7 @@ import {
   ShieldCheck, Database, Network, 
   Map, Scan, Activity, Zap
 } from 'lucide-react';
-import { BarGraph3D } from './BarGraph3D';
-import { NetworkGraph3D } from './NetworkGraph3D';
-import { SpaceGlobe3D } from './SpaceGlobe3D';
-import { CryptoGraph3D } from './CryptoGraph3D';
+
 import { BerrywiseVisual } from './BerrywiseVisual';
 
 const amber = '#f59e0b';

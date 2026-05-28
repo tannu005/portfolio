@@ -196,7 +196,7 @@ export default function BerrywisePage() {
       <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '48px' }}>
         <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '12px' }}>The Market Edge: Why Choose Berrywise?</h2>
         <p style={{ color: '#a8a29e', lineHeight: 1.8, maxWidth: '52rem' }}>
-          What makes Berrywise stand out from enterprise monolithic solutions isn't just the AI—it's the <strong>transparency and user experience</strong>. Most AI recruiters act as a "black box," rejecting candidates without explanation. Berrywise provides a multi-factor competency radar graph outlining exactly <em>why</em> a candidate scored high or low across technical skills, culture fit, and experience. Combined with its premium glassmorphic interface and sub-50ms real-time interactions, it transforms a typically tedious administrative chore into an engaging, data-driven experience.
+          Enterprise ATS platforms are notoriously frustrating. They often operate as a "black box" where resumes go in and automated rejections come out with zero context. Berrywise fixes this by prioritizing transparency. Instead of hiding behind an arbitrary score, it generates a multi-factor competency radar graph that breaks down exactly why a candidate scored high or low across technical skills, culture fit, and experience. Paired with a fast, modern interface and sub-50ms real-time interactions, it turns a clunky administrative chore into a smooth, data-driven workflow.
         </p>
       </motion.section>
 
