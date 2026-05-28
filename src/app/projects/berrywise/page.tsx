@@ -34,7 +34,7 @@ export default function BerrywisePage() {
           Berrywise ATS
         </h1>
         <p style={{ fontSize: '18px', color: '#a8a29e', maxWidth: '42rem', lineHeight: 1.7, marginBottom: '24px' }}>
-          An AI-powered recruitment pipeline and applicant tracking system. It leverages advanced text processing to parse resumes, evaluates candidates dynamically via multi-factor scorecards, enables real-time collaboration with Socket.IO, and supports custom SMTP configurations.
+          An AI-powered recruitment pipeline and applicant tracking system. It uses advanced text processing to parse resumes, evaluates candidates in real time via multi-factor scorecards, enables live collaboration with Socket.IO, and supports custom SMTP configurations.
         </p>
 
         {/* CTA buttons */}
@@ -136,7 +136,7 @@ export default function BerrywisePage() {
             </div>
             <h3 style={{ color: '#fafaf9', fontSize: '15px', fontWeight: 600, margin: '0 0 10px' }}>Dynamic SMTP Engine</h3>
             <p style={{ color: '#a8a29e', fontSize: '13px', lineHeight: 1.6, margin: 0 }}>
-              Dual-mode email delivery utilizing Nodemailer. Seamlessly shifts between real authenticated SMTP servers and the Ethereal sandbox for clickable localhost testing previews.
+              Dual-mode email delivery utilizing Nodemailer. Instantly shifts between real authenticated SMTP servers and the Ethereal sandbox for clickable localhost testing previews.
             </p>
           </div>
 
@@ -205,7 +205,7 @@ export default function BerrywisePage() {
         <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '20px' }}>Lessons Learned</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))', gap: '16px' }}>
           {[
-            { title: 'Unstructured Data', desc: 'Parsing raw PDFs is incredibly chaotic. Building robust heuristics is critical to prevent garbage data from destroying the AI context window.' },
+            { title: 'Unstructured Data', desc: 'Parsing raw PDFs is incredibly chaotic. Building strict heuristics is critical to prevent garbage data from destroying the AI context window.' },
             { title: 'Socket Architecture', desc: 'Real-time WebSocket events drastically improve UX by eliminating the need to poll the server while a document is being parsed and scored.' },
             { title: 'Local Persistence', desc: 'Using SQLite for local credential storage ensures the platform remains secure and recruiter credentials never leak into public state.' },
           ].map(l => (

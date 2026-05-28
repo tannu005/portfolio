@@ -163,7 +163,7 @@ export default function ScreenGuardPage() {
           {[
             { title: 'Threading in OpenCV', desc: 'Webcam feed frames block Python\'s main GIL thread. Resolved this by separating frame captures and model inferences into independent subprocesses.' },
             { title: 'Monitor Control Standards', desc: 'Found that WMI adjustments only work on built-in laptop displays. Extended the tool to support external desktop monitors using native DDC-CI commands.' },
-            { title: 'Sensor Co-Design', desc: 'Microcontrollers provide fast, low-power telemetry but lack visual verification. Combining hardware with computer vision created a highly robust validation loop.' },
+            { title: 'Sensor Co-Design', desc: 'Microcontrollers provide fast, low-power telemetry but lack visual verification. Combining hardware with computer vision created a highly stable validation loop.' },
           ].map(l => (
             <div key={l.title} style={{ background: surface, border: `1px solid ${border}`, borderRadius: '12px', padding: '20px' }}>
               <h4 style={{ color: amber, fontSize: '13px', fontWeight: 700, marginBottom: '8px' }}>{l.title}</h4>
