@@ -339,6 +339,7 @@ export default function Home() {
         <nav className="gsap-nav">
           <Link href="/projects/lendswift" data-slide="1">LendSwift</Link>
           <Link href="/projects/stock-screener" data-slide="2">Screener</Link>
+          <Link href="/projects/berrywise" data-slide="8">Berrywise</Link>
           <Link href="/projects/navix" data-slide="3">Navix</Link>
           <Link href="/projects/newsai" data-slide="4">NewsAI</Link>
           <Link href="/projects/screengard" data-slide="6">ScreenGuard</Link>

@@ -24,7 +24,7 @@ const WiseBerryAvatar = ({ hovered }: { hovered: boolean }) => {
       groupRef.current.rotation.z = Math.sin(time * 2) * 0.05;
 
       // Squash and stretch scale effect on hover (now base scale is smaller)
-      const baseScale = 1.6; // Reduced size
+      const baseScale = 1.0; // Reduced size significantly
       const targetScaleX = hovered ? baseScale * 1.05 : baseScale;
       const targetScaleY = hovered ? baseScale * 0.95 : baseScale;
       groupRef.current.scale.lerp(new THREE.Vector3(targetScaleX, targetScaleY, targetScaleX), 0.1);
@@ -103,18 +103,18 @@ const WiseBerryAvatar = ({ hovered }: { hovered: boolean }) => {
           </mesh>
 
           {/* HTML Tooltip Bubble */}
-          <Html position={[0, 2.2, 0]} center zIndexRange={[100, 0]}>
+          <Html position={[0, 2.0, 0]} center zIndexRange={[100, 0]}>
             <div style={{
-              background: 'rgba(255,255,255,0.95)',
-              color: '#4f46e5',
+              background: 'rgba(20,20,20,0.95)',
+              color: '#f59e0b',
               fontSize: '11px',
-              fontWeight: 900,
+              fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '1px',
               padding: '8px 16px',
               borderRadius: '999px',
-              boxShadow: '0 10px 25px rgba(99,102,241,0.3)',
-              border: '2px solid #818cf8',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+              border: '1px solid #333',
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
@@ -123,7 +123,7 @@ const WiseBerryAvatar = ({ hovered }: { hovered: boolean }) => {
               opacity: hovered ? 1 : 0.85,
               transition: 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)'
             }}>
-              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#34d399' }} />
+              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981' }} />
               I'm Berrywise!
             </div>
           </Html>
