@@ -12,12 +12,13 @@ A modern, high-performance portfolio showcasing production-ready engineering sys
 
 ## 🛠️ Featured Projects
 
-The portfolio highlights 5 core shipped systems:
+The portfolio highlights 6 core shipped systems:
 1. **LendSwift**: Secure B2C FinTech portal (Node.js/PostgreSQL) preventing 8 major vulnerability classes.
 2. **Stock Screener**: High-frequency data dashboard rendering 5,000 live records at 60fps.
-3. **Navix AI**: Multi-LLM routing platform integrating Gemini & Groq APIs.
-4. **NewsAI**: Vector-embedded RAG search platform.
-5. **ScreenGuard**: C++/Python Edge IoT hardware vision system.
+3. **Berrywise ATS**: Transparent AI recruitment pipeline with dynamic SMTP and WebSocket collaboration.
+4. **Navix AI**: Multi-LLM routing platform integrating Gemini & Groq APIs.
+5. **NewsAI**: Vector-embedded RAG search platform.
+6. **ScreenGuard**: C++/Python Edge IoT hardware vision system.
 
 ## 💻 Getting Started
 
