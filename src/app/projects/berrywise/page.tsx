@@ -167,6 +167,39 @@ export default function BerrywisePage() {
         </div>
       </motion.section>
 
+      {/* My Approach vs Tutorial Approach */}
+      <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '48px' }}>
+        <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '24px' }}>My Approach vs. Tutorial Approach</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '20px' }}>
+          <div style={{ background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.2)', padding: '24px', borderRadius: '16px' }}>
+            <h3 style={{ color: '#f87171', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px' }}>The "Tutorial" ATS</h3>
+            <ul style={{ color: '#a8a29e', fontSize: '14px', lineHeight: 1.8, paddingLeft: '20px', margin: 0 }}>
+              <li>Basic CRUD app where recruiters manually read uploaded PDFs.</li>
+              <li>Fake "loading" spinners while waiting for a basic database insert.</li>
+              <li>Hardcoded email addresses in a `.env` file that only work for the developer.</li>
+              <li>Crashes if a user uploads a corrupted file or an image instead of a document.</li>
+            </ul>
+          </div>
+          <div style={{ background: 'rgba(52,211,153,0.05)', border: '1px solid rgba(52,211,153,0.2)', padding: '24px', borderRadius: '16px' }}>
+            <h3 style={{ color: '#34d399', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px' }}>The Berrywise Approach</h3>
+            <ul style={{ color: '#a8a29e', fontSize: '14px', lineHeight: 1.8, paddingLeft: '20px', margin: 0 }}>
+              <li>Automated AI text extraction with intelligent heuristic document validation.</li>
+              <li>Real-time WebSocket events replacing loading spinners.</li>
+              <li>Dynamic SQLite-backed SMTP configurations per recruiter session.</li>
+              <li>Graceful error handling that intercepts invalid files before the database layer.</li>
+            </ul>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* The Market Edge */}
+      <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '48px' }}>
+        <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '12px' }}>The Market Edge: Why Choose Berrywise?</h2>
+        <p style={{ color: '#a8a29e', lineHeight: 1.8, maxWidth: '52rem' }}>
+          What makes Berrywise stand out from enterprise monolithic solutions isn't just the AI—it's the <strong>transparency and user experience</strong>. Most AI recruiters act as a "black box," rejecting candidates without explanation. Berrywise provides a multi-factor competency radar graph outlining exactly <em>why</em> a candidate scored high or low across technical skills, culture fit, and experience. Combined with its premium glassmorphic interface and sub-50ms real-time interactions, it transforms a typically tedious administrative chore into an engaging, data-driven experience.
+        </p>
+      </motion.section>
+
       {/* Lessons */}
       <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
         <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '20px' }}>Lessons Learned</h2>
