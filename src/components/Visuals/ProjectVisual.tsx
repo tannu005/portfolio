@@ -5,6 +5,11 @@ import {
   ShieldCheck, Database, Network, 
   Map, Scan, Activity, Zap
 } from 'lucide-react';
+import { BarGraph3D } from './BarGraph3D';
+import { NetworkGraph3D } from './NetworkGraph3D';
+import { SpaceGlobe3D } from './SpaceGlobe3D';
+import { CryptoGraph3D } from './CryptoGraph3D';
+import { BerrywiseVisual } from './BerrywiseVisual';
 
 const amber = '#f59e0b';
 const darkSurface = 'rgba(20, 20, 20, 0.8)';
@@ -60,6 +65,15 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
     rotateX,
     rotateY
   };
+
+  // 8: BerrywiseVisual
+  if (projectId === 8) {
+    return (
+      <div style={containerStyle}>
+        <BerrywiseVisual />
+      </div>
+    );
+  }
 
   // 1: LendSwift
   if (projectId === 1) {

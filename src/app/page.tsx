@@ -49,6 +49,18 @@ const slides: SlideData[] = [
     liveLabel: 'stock-screener-5tiy.vercel.app',
   },
   {
+    id: 8,
+    subtitle: 'AI Recruitment · WebSockets · SQLite',
+    title: ['Berrywise', 'ATS'],
+    description:
+      'Production-grade Applicant Tracking System. Features AI-powered multi-factor resume scorecarding, real-time Socket.IO collaboration, dynamic SMTP configurations, and heuristic document validation. Beautiful glassmorphic UI with responsive Recharts radar graphs.',
+    tags: ['React', 'Node.js', 'Express', 'SQLite', 'Socket.IO', 'TailwindCSS'],
+    href: '/projects/berrywise',
+    liveHref: 'https://recruitment-pipeline-nagl.vercel.app/',
+    githubHref: 'https://github.com/tannu005/recruitment-pipeline',
+    liveLabel: 'recruitment-pipeline-nagl.vercel.app',
+  },
+  {
     id: 3,
     subtitle: 'AI Platform · CI/CD · Vercel',
     title: ['Navix', 'AI'],

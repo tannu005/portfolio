@@ -112,7 +112,7 @@ export default function AboutPage() {
         <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '24px' }}>By the Numbers</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(130px,1fr))', gap: '16px' }}>
           {[
-            { value: '6', label: 'Shipped Systems' },
+            { value: '7', label: 'Shipped Systems' },
             { value: '8+', label: 'Vulnerabilities Prevented' },
             { value: '<200ms', label: 'Fastest Data Filter' },
             { value: '8+', label: 'External APIs Integrated' },
