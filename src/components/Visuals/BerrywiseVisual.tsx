@@ -43,8 +43,8 @@ const WiseBerryAvatar = ({ hovered }: { hovered: boolean }) => {
           <mesh position={[0, 0, 0]}>
             <sphereGeometry args={[1.2, 64, 64]} />
             <MeshDistortMaterial 
-              color={hovered ? "#fbbf24" : "#f59e0b"} 
-              emissive={hovered ? "#fcd34d" : "#d97706"}
+              color="#8b5cf6" 
+              emissive="#6d28d9"
               emissiveIntensity={0.2}
               roughness={0.1}
               metalness={0.3}
@@ -149,11 +149,11 @@ export function BerrywiseVisual() {
         <WiseBerryAvatar hovered={hovered} />
         
         <Sparkles 
-          count={30} 
+          count={100} 
           scale={8} 
           size={hovered ? 6 : 3} 
           speed={0.8} 
-          color={hovered ? "#fcd34d" : "#f59e0b"} 
+          color={hovered ? "#34d399" : "#fb7185"} 
           opacity={0.8} 
         />
       </Canvas>
