@@ -29,7 +29,7 @@ export default function ExperiencePage() {
         <h1 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: 'clamp(2.5rem,6vw,4rem)', fontWeight: 700, color: '#fafaf9', margin: '12px 0 8px', letterSpacing: '-1.5px', lineHeight: 1 }}>
           India Space Lab
         </h1>
-        <p style={{ fontSize: '15px', color: muted, marginBottom: '16px' }}>Geospatial Data Analyst Intern &nbsp;·&nbsp; Feb – Mar 2026</p>
+        <p style={{ fontSize: '15px', color: muted, marginBottom: '16px' }}>Geospatial Data Analyst Intern &nbsp;·&nbsp; Feb - Mar 2026</p>
         <p style={{ fontSize: '18px', color: '#a8a29e', maxWidth: '42rem', lineHeight: 1.7, marginBottom: '24px' }}>
           Built automated GIS and Remote Sensing pipelines in Python to process and classify 200+ sq km of satellite imagery across 5+ multispectral datasets. Delivered an interactive Streamlit dashboard enabling non-technical stakeholders to interpret satellite data without writing a single line of code.
         </p>
@@ -84,7 +84,7 @@ export default function ExperiencePage() {
             {
               icon: BookOpen,
               title: 'Parameterised Notebooks',
-              desc: 'Packaged all analysis pipelines as reusable, parameterised Jupyter notebooks. Changing the input config — not rewriting code — is all that is needed to run on a new dataset or region.',
+              desc: 'Packaged all analysis pipelines as reusable, parameterised Jupyter notebooks. Changing the input config - not rewriting code - is all that is needed to run on a new dataset or region.',
             },
           ].map((item, i) => {
             const Icon = item.icon;
@@ -108,8 +108,8 @@ export default function ExperiencePage() {
         <div style={{ background: surface, border: `1px solid ${border}`, borderRadius: '12px', padding: '28px' }}>
           {[
             { label: 'Domain Learning Ability', desc: 'Jumped into geospatial systems with zero prior knowledge and delivered production pipelines within weeks. I can ramp on any new domain fast.' },
-            { label: 'Data Science Breadth', desc: 'Comfortable with NumPy, Pandas, GeoPandas, and high-volume streaming data — not just web APIs.' },
-            { label: 'Stakeholder Communication', desc: 'Built dashboards for non-technical users — proving I bridge the engineer–business gap, not just write backend code.' },
+            { label: 'Data Science Breadth', desc: 'Comfortable with NumPy, Pandas, GeoPandas, and high-volume streaming data - not just web APIs.' },
+            { label: 'Stakeholder Communication', desc: 'Built dashboards for non-technical users - proving I bridge the engineer-business gap, not just write backend code.' },
             { label: 'Reusability Mindset', desc: 'Parameterised notebooks mean any future analyst re-uses my work with a config change, not a copy-paste and pray.' },
           ].map((point, i) => (
             <div key={point.label} style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', marginBottom: i < 3 ? '20px' : 0, paddingBottom: i < 3 ? '20px' : 0, borderBottom: i < 3 ? `1px solid ${border}` : 'none' }}>

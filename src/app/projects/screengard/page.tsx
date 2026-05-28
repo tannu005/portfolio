@@ -90,7 +90,7 @@ export default function ScreenGuardPage() {
       <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '48px' }}>
         <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '12px' }}>The Problem</h2>
         <p style={{ color: '#a8a29e', lineHeight: 1.8, maxWidth: '52rem' }}>
-          Computer vision syndrome affects up to 90% of office workers. While standard tools like f.lux shift color temperatures dynamically, they operate blindly — they have no concept of user positioning, distance, or age (children need different exposure thresholds than adults). We set out to build a cyber-physical system capable of real-time physical posture/distance evaluation and automatic environmental adjustment.
+          Computer vision syndrome affects up to 90% of office workers. While standard tools like f.lux shift color temperatures dynamically, they operate blindly - they have no concept of user positioning, distance, or age (children need different exposure thresholds than adults). We set out to build a cyber-physical system capable of real-time physical posture/distance evaluation and automatic environmental adjustment.
         </p>
       </motion.section>
 

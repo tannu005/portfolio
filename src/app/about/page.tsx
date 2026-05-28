@@ -32,7 +32,7 @@ export default function AboutPage() {
             Tannu Yadav
           </h1>
           <p style={{ fontSize: '17px', color: '#a8a29e', maxWidth: '38rem', lineHeight: 1.7 }}>
-            Frontend-leaning full-stack developer with production experience building and deploying web applications using React, Next.js, and TypeScript — from AI-driven product interfaces to real-time data pipelines backed by REST APIs and cloud infrastructure. Shipped a geospatial analysis platform during an industry internship at India Space Lab and independently built five deployed systems integrating Gemini, Groq, live market APIs, and custom firmware.
+            Frontend-leaning full-stack developer with production experience building and deploying web applications using React, Next.js, and TypeScript - from AI-driven product interfaces to real-time data pipelines backed by REST APIs and cloud infrastructure. Shipped a geospatial analysis platform during an industry internship at India Space Lab and independently built five deployed systems integrating Gemini, Groq, live market APIs, and custom firmware.
           </p>
         </motion.div>
 
@@ -131,21 +131,21 @@ export default function AboutPage() {
 
       {/* Skills */}
       <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '56px' }}>
-        <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '24px' }}>Technical Skills — In Context</h2>
+        <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '24px' }}>Technical Skills - In Context</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(240px,1fr))', gap: '14px' }}>
           {[
             { skill: 'React.js / Next.js', context: 'Built Stock Screener\'s virtual list layout; Navix\'s AI dashboard; and NewsAI\'s spatial 3D graph interface' },
-            { skill: 'TypeScript', context: 'Type safety across Navix\'s screens — catching bugs at compile time, Zod schemas as source of truth' },
-            { skill: 'Node.js + Express', context: 'LendSwift\'s secure API layer — CORS whitelist, rate limiting, JWT, server-side Zod validation' },
-            { skill: 'PostgreSQL + Prisma ORM', context: 'LendSwift\'s database layer — zero injection risk, indexed queries, versioned migrations' },
+            { skill: 'TypeScript', context: 'Type safety across Navix\'s screens - catching bugs at compile time, Zod schemas as source of truth' },
+            { skill: 'Node.js + Express', context: 'LendSwift\'s secure API layer - CORS whitelist, rate limiting, JWT, server-side Zod validation' },
+            { skill: 'PostgreSQL + Prisma ORM', context: 'LendSwift\'s database layer - zero injection risk, indexed queries, versioned migrations' },
             { skill: 'Tailwind CSS + Framer Motion', context: 'Delivered cinematic 60fps UIs maintaining hardware-accelerated rendering via code splitting' },
             { skill: 'Three.js / React Three Fiber', context: 'Created NewsAI\'s force-directed interactive 3D document graph rendering node networks' },
             { skill: 'OpenCV / Deep Learning DNN', context: 'Compiled ScreenGuard\'s real-time computer vision tracker estimating face distance and age' },
-            { skill: 'Gemini API + Groq API', context: 'Intelligent LLM routing in Navix — Gemini for accuracy, Groq for speed, 35% token cost reduction' },
-            { skill: 'GitHub Actions + Vercel', context: 'Zero-touch CI/CD pipeline — every push automatically linted, built, and deployed in under 60 seconds' },
-            { skill: 'Python + NumPy + GeoPandas', context: 'India Space Lab — automated satellite imagery pipelines processing 200+ sq km of multispectral data' },
+            { skill: 'Gemini API + Groq API', context: 'Intelligent LLM routing in Navix - Gemini for accuracy, Groq for speed, 35% token cost reduction' },
+            { skill: 'GitHub Actions + Vercel', context: 'Zero-touch CI/CD pipeline - every push automatically linted, built, and deployed in under 60 seconds' },
+            { skill: 'Python + NumPy + GeoPandas', context: 'India Space Lab - automated satellite imagery pipelines processing 200+ sq km of multispectral data' },
             { skill: 'ESP32 + MQTT + Arduino', context: 'IoT firmware and device-to-cloud telemetry coordinating with desktop display brightness APIs' },
-            { skill: 'TanStack Virtual + Zustand', context: 'Stock Screener\'s state and rendering architecture — windowed rows, memoized filters' },
+            { skill: 'TanStack Virtual + Zustand', context: 'Stock Screener\'s state and rendering architecture - windowed rows, memoized filters' },
           ].map((s, i) => (
             <motion.div key={s.skill} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.04 }}
               style={{ background: surface, border: `1px solid ${border}`, borderRadius: '12px', padding: '18px 20px' }}>
@@ -205,7 +205,7 @@ export default function AboutPage() {
               <h3 style={{ color: '#fafaf9', fontWeight: 700, fontSize: '16px', margin: 0 }}>Vellore Institute of Technology (VIT-AP University)</h3>
               <p style={{ color: amber, fontSize: '14px', fontWeight: 500, marginTop: '4px' }}>Bachelor of Technology (B.Tech.) in Computer Science & Engineering</p>
             </div>
-            <span style={{ fontSize: '12px', color: muted, fontWeight: 500 }}>2023 — 2027 (Expected)</span>
+            <span style={{ fontSize: '12px', color: muted, fontWeight: 500 }}>2023 - 2027 (Expected)</span>
           </div>
           <p style={{ color: '#a8a29e', fontSize: '13px', lineHeight: 1.7, marginTop: '16px' }}>
             Focusing on software systems architecture, database management, and interactive computer graphics. Actively participating in IoT design challenges and building practical cross-disciplinary systems bridging web software, embedded controllers, and edge AI.

@@ -65,7 +65,7 @@ const slides: SlideData[] = [
     subtitle: 'AI Platform · CI/CD · Vercel',
     title: ['Navix', 'AI'],
     description:
-      'Architected a 5-screen AI career platform. Gemini & Groq APIs routed independently — Gemini for CV generation, Groq for real-time chat. Reusable component library with 40% code reuse across all screens. Zero-touch CI/CD via GitHub Actions → Vercel.',
+      'Architected a 5-screen AI career platform. Gemini & Groq APIs routed independently - Gemini for CV generation, Groq for real-time chat. Reusable component library with 40% code reuse across all screens. Zero-touch CI/CD via GitHub Actions → Vercel.',
     tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Gemini API', 'Groq API', 'Vercel', 'CI/CD'],
     href: '/projects/navix',
     liveHref: 'https://navix-v2.vercel.app/',
@@ -89,7 +89,7 @@ const slides: SlideData[] = [
     subtitle: 'Internship · GIS · Data Science',
     title: ['India', 'Space Lab'],
     description:
-      'Geospatial Data Analyst Intern (Feb–Mar 2026). Built automated GIS pipelines in Python processing 200+ sq km of satellite imagery across 5+ multispectral datasets. Streamlit dashboard for non-technical stakeholders. Parameterised Jupyter notebooks reducing setup from hours to a config change.',
+      'Geospatial Data Analyst Intern (Feb-Mar 2026). Built automated GIS pipelines in Python processing 200+ sq km of satellite imagery across 5+ multispectral datasets. Streamlit dashboard for non-technical stakeholders. Parameterised Jupyter notebooks reducing setup from hours to a config change.',
     tags: ['Python', 'NumPy', 'GeoPandas', 'GDAL', 'Streamlit', 'Jupyter', 'GIS', 'Remote Sensing'],
     href: '/experience',
     liveHref: 'https://remote-sensing-gis-ftk4znsyyftydvmnng7iwh.streamlit.app/',
@@ -372,7 +372,7 @@ export default function Home() {
             </h1>
 
             <p className="intro__txt">
-              <strong>Full-Stack Product Engineer.</strong> I ship production systems that handle real-world constraints — not tutorials. Six deployed projects. Eight vulnerability classes prevented. Five thousand records filtered in under 200 milliseconds.
+              <strong>Full-Stack Product Engineer.</strong> I ship production systems that handle real-world constraints - not tutorials. Six deployed projects. Eight vulnerability classes prevented. Five thousand records filtered in under 200 milliseconds.
             </p>
 
             <div className="intro__metrics">
@@ -525,7 +525,7 @@ export default function Home() {
 
             </div>
 
-            {/* Right column — interactive 3D visual */}
+            {/* Right column - interactive 3D visual */}
             <div className="col col--2">
               <div className="col__visual-wrap" style={{ position: 'absolute', left: 0, top: '-30vh', width: '100%', height: '160vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <ProjectVisual projectId={slide.id} />

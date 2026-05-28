@@ -103,7 +103,7 @@ export default function LendSwiftPage() {
       <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '48px' }}>
         <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '12px' }}>The Problem</h2>
         <p style={{ color: '#a8a29e', lineHeight: 1.8, maxWidth: '52rem' }}>
-          Loan application platforms are notoriously slow, insecure, and impossible to scale. Tutorial-grade apps use a single JavaScript file with no backend validation — data lost on refresh, zero security, and 500ms+ render times. I needed to build a financial-grade system handling sensitive PII securely, validating across 50+ fields without lag, and architected to scale to real-world traffic.
+          Loan application platforms are notoriously slow, insecure, and impossible to scale. Tutorial-grade apps use a single JavaScript file with no backend validation - data lost on refresh, zero security, and 500ms+ render times. I needed to build a financial-grade system handling sensitive PII securely, validating across 50+ fields without lag, and architected to scale to real-world traffic.
         </p>
       </motion.section>
 
@@ -127,9 +127,9 @@ export default function LendSwiftPage() {
         <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '24px' }}>Engineering Journal</h2>
         <div style={{ position: 'relative', paddingLeft: '32px', borderLeft: `1px solid ${border}` }}>
           {[
-            { week: 'Week 1–2', title: 'Form State Architecture', detail: 'Pivoted from Redux (overkill) to React Hook Form + Zod. Result: zero lag across all 8 steps, 40% less code, compile-time type safety on the schema.' },
-            { week: 'Week 3', title: 'E-Signature & Asset Pipeline', detail: 'Canvas → PNG → client-side compress → append to form state. Reduced payload from 500KB to 50KB — a 90% reduction. No server upload needed.' },
-            { week: 'Week 4–5', title: 'API Security Hardening', detail: 'Added CORS whitelist, server-side Zod validation, JWT-protected routes, and rate limiting. Browser DevTools exploits blocked at every layer.' },
+            { week: 'Week 1-2', title: 'Form State Architecture', detail: 'Pivoted from Redux (overkill) to React Hook Form + Zod. Result: zero lag across all 8 steps, 40% less code, compile-time type safety on the schema.' },
+            { week: 'Week 3', title: 'E-Signature & Asset Pipeline', detail: 'Canvas → PNG → client-side compress → append to form state. Reduced payload from 500KB to 50KB - a 90% reduction. No server upload needed.' },
+            { week: 'Week 4-5', title: 'API Security Hardening', detail: 'Added CORS whitelist, server-side Zod validation, JWT-protected routes, and rate limiting. Browser DevTools exploits blocked at every layer.' },
             { week: 'Week 6', title: 'Database Query Optimization', detail: 'Indexed Prisma queries, added connection pooling via Supabase. Admin dashboard loads 100+ rows with live sort/filter in <50ms.' },
           ].map((e, i) => (
             <motion.div key={e.week} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}

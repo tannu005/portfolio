@@ -30,7 +30,7 @@ export default function NavixPage() {
           Navix AI
         </h1>
         <p style={{ fontSize: '18px', color: '#a8a29e', maxWidth: '42rem', lineHeight: 1.7, marginBottom: '24px' }}>
-          Architected a 5-screen AI-driven career development platform. Gemini API powers CV generation and skill gap analysis; Groq API drives the real-time AI chat — each feature isolated behind its own API route. Reusable component library cut per-screen development time by 40%. Zero-touch deployments via GitHub Actions → Vercel CI/CD pipeline.
+          Architected a 5-screen AI-driven career development platform. Gemini API powers CV generation and skill gap analysis; Groq API drives the real-time AI chat - each feature isolated behind its own API route. Reusable component library cut per-screen development time by 40%. Zero-touch deployments via GitHub Actions → Vercel CI/CD pipeline.
         </p>
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
           <a href="https://navix-v2.vercel.app/" target="_blank" rel="noopener noreferrer" style={{
@@ -88,7 +88,7 @@ export default function NavixPage() {
       <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '48px' }}>
         <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '8px' }}>Intelligent LLM API Routing</h2>
         <p style={{ color: '#a8a29e', marginBottom: '24px', lineHeight: 1.7, maxWidth: '52rem' }}>
-          Not all tasks need the same AI. Routing by task type — accuracy vs speed — optimised token costs by 35% and cut chat latency from ~2s to ~200ms.
+          Not all tasks need the same AI. Routing by task type - accuracy vs speed - optimised token costs by 35% and cut chat latency from ~2s to ~200ms.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: '16px' }}>
           <div style={{ background: surface, border: '1px solid rgba(245,158,11,0.3)', borderRadius: '12px', padding: '24px' }}>
@@ -100,7 +100,7 @@ export default function NavixPage() {
             <ul style={{ color: '#a8a29e', fontSize: '13px', lineHeight: 1.8, margin: 0, paddingLeft: '16px' }}>
               <li>Higher accuracy & nuance</li>
               <li>Better structured JSON output</li>
-              <li>~2–3s response (acceptable for generation)</li>
+              <li>~2-3s response (acceptable for generation)</li>
             </ul>
           </div>
           <div style={{ background: surface, border: '1px solid rgba(249,115,22,0.3)', borderRadius: '12px', padding: '24px' }}>
@@ -122,7 +122,7 @@ export default function NavixPage() {
 
       {/* Component Library */}
       <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '48px' }}>
-        <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '8px' }}>Reusable Component Library — 40% Code Reuse</h2>
+        <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '8px' }}>Reusable Component Library - 40% Code Reuse</h2>
         <p style={{ color: '#a8a29e', marginBottom: '24px', lineHeight: 1.7, maxWidth: '52rem' }}>
           Instead of building 5 screens from scratch, I built a shared component library first. Every screen uses the same primitives, so adding a new screen takes hours, not days.
         </p>
@@ -149,7 +149,7 @@ export default function NavixPage() {
 
       {/* CI/CD Pipeline */}
       <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '48px' }}>
-        <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '8px' }}>CI/CD Pipeline — Zero-Touch Deployments</h2>
+        <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '8px' }}>CI/CD Pipeline - Zero-Touch Deployments</h2>
         <p style={{ color: '#a8a29e', marginBottom: '24px', lineHeight: 1.7, maxWidth: '52rem' }}>
           Every push to main is automatically linted, type-checked, built, and deployed. Deployment time: from &quot;whenever I remember to SSH&quot; to under 60 seconds, automatically.
         </p>
@@ -180,7 +180,7 @@ export default function NavixPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))', gap: '16px' }}>
           {[
             { title: 'API Provider Trade-offs', desc: 'No single LLM is best for everything. Routing by task type (accuracy vs speed) cut costs 35% and halved chat latency.' },
-            { title: 'Component-First Thinking', desc: 'Building the component library first — before any screen — meant each new screen was assembled, not built.' },
+            { title: 'Component-First Thinking', desc: 'Building the component library first - before any screen - meant each new screen was assembled, not built.' },
             { title: 'Automated Deployment', desc: 'CI/CD isn\'t a luxury. Manual deploys are error-prone and mentally draining. Automate everything from day one.' },
             { title: 'Token Cost Engineering', desc: 'Prompt engineering and response caching reduced API token spend. Real-world AI apps must consider unit economics.' },
           ].map(l => (

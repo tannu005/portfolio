@@ -8,7 +8,7 @@
 }
 
 /* ========================================================================== 
-   ANTIGRAVITY — Obsidian + Amber/Gold Design System
+   ANTIGRAVITY - Obsidian + Amber/Gold Design System
    Zero blue. Pure warmth. Premium feel.
    ========================================================================== */
 
@@ -344,7 +344,7 @@ p { margin: 0; }
   .col__content { width: 80%; }
 }
 
-/* Warm dark gradients — zero blue */
+/* Warm dark gradients - zero blue */
 .col__content--1 { background: linear-gradient(180deg, #1a1510 0%, #0a0a0a 100%); }
 .col__content--2 { background: linear-gradient(180deg, #171210 0%, #0a0a0a 100%); }
 .col__content--3 { background: linear-gradient(180deg, #18140f 0%, #0a0a0a 100%); }
