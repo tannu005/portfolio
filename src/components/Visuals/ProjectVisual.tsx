@@ -66,8 +66,8 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
     rotateY
   };
 
-  // 8: BerrywiseVisual
-  if (projectId === 8) {
+  // 100: BerrywiseVisual
+  if (projectId === 100) {
     return (
       <div style={containerStyle}>
         <BerrywiseVisual />

@@ -49,7 +49,7 @@ const slides: SlideData[] = [
     liveLabel: 'stock-screener-5tiy.vercel.app',
   },
   {
-    id: 8,
+    id: 100,
     subtitle: 'AI Recruitment · WebSockets · SQLite',
     title: ['Berrywise', 'ATS'],
     description:
@@ -339,7 +339,7 @@ export default function Home() {
         <nav className="gsap-nav">
           <Link href="/projects/lendswift" data-slide="1">LendSwift</Link>
           <Link href="/projects/stock-screener" data-slide="2">Screener</Link>
-          <Link href="/projects/berrywise" data-slide="8">Berrywise</Link>
+          <Link href="/projects/berrywise" data-slide="100">Berrywise</Link>
           <Link href="/projects/navix" data-slide="3">Navix</Link>
           <Link href="/projects/newsai" data-slide="4">NewsAI</Link>
           <Link href="/projects/screengard" data-slide="6">ScreenGuard</Link>
