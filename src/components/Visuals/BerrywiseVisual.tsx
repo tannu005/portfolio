@@ -1,10 +1,9 @@
 'use client';
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, Sparkles, MeshDistortMaterial } from '@react-three/drei';
+import { Float, Sparkles, MeshDistortMaterial, Html } from '@react-three/drei';
 import * as THREE from 'three';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 const WiseBerryAvatar = ({ hovered }: { hovered: boolean }) => {
   const groupRef = useRef<THREE.Group>(null);
@@ -13,26 +12,32 @@ const WiseBerryAvatar = ({ hovered }: { hovered: boolean }) => {
     if (groupRef.current) {
       const time = state.clock.getElapsedTime();
       
-      // Random playful tilt
-      groupRef.current.rotation.z = Math.sin(time * 2) * 0.1;
-      groupRef.current.rotation.y = Math.sin(time * 1.5) * 0.2;
-      groupRef.current.rotation.x = Math.sin(time * 1) * 0.1;
+      // Mouse tracking interaction
+      // state.pointer contains normalized mouse coordinates (-1 to +1)
+      const targetX = state.pointer.x * 1.2;
+      const targetY = -state.pointer.y * 1.2;
+      
+      groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, targetX, 0.1);
+      groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, targetY, 0.1);
 
-      // Squash and stretch scale effect on hover
-      const targetScaleX = hovered ? 1.05 : 1.0;
-      const targetScaleY = hovered ? 0.95 : 1.0;
+      // Playful bobbing on Z axis
+      groupRef.current.rotation.z = Math.sin(time * 2) * 0.05;
+
+      // Squash and stretch scale effect on hover (now base scale is smaller)
+      const baseScale = 1.6; // Reduced size
+      const targetScaleX = hovered ? baseScale * 1.05 : baseScale;
+      const targetScaleY = hovered ? baseScale * 0.95 : baseScale;
       groupRef.current.scale.lerp(new THREE.Vector3(targetScaleX, targetScaleY, targetScaleX), 0.1);
     }
   });
 
   return (
-    <Float speed={hovered ? 6 : 3} rotationIntensity={0.5} floatIntensity={hovered ? 2 : 1}>
+    <Float speed={hovered ? 6 : 3} rotationIntensity={0.2} floatIntensity={hovered ? 1.5 : 0.8}>
       <group 
         ref={groupRef} 
         onPointerOver={(e) => { e.stopPropagation(); document.body.style.cursor = 'pointer'; }}
         onPointerOut={(e) => { e.stopPropagation(); document.body.style.cursor = 'auto'; }}
-        scale={2.5}
-        position={[0, 0, 0]}
+        position={[0, -0.5, 0]}
       >
           {/* Berry Body - Premium Jelly/Glass look */}
           <mesh position={[0, 0, 0]}>
@@ -91,18 +96,37 @@ const WiseBerryAvatar = ({ hovered }: { hovered: boolean }) => {
             <meshStandardMaterial color="#ffffff" emissive="#ffffff" emissiveIntensity={0.8} />
           </mesh>
 
-          {/* Cute little mouth */}
-          {hovered ? (
-            <mesh position={[0, -0.2, 1.18]}>
-              <sphereGeometry args={[0.08, 32, 32]} />
-              <meshStandardMaterial color="#fca5a5" emissive="#ef4444" emissiveIntensity={0.2} />
-            </mesh>
-          ) : (
-            <mesh position={[0, -0.15, 1.18]} rotation={[0, 0, Math.PI]}>
-              <cylinderGeometry args={[0.08, 0.08, 0.02, 32, 1, false, 0, Math.PI]} />
-              <meshStandardMaterial color="#cbd5e1" emissive="#94a3b8" emissiveIntensity={0.2} />
-            </mesh>
-          )}
+          {/* Mouth - Always smiling when tracking mouse! */}
+          <mesh position={[0, -0.15, 1.18]} rotation={[0.2, 0, 0]}>
+            <sphereGeometry args={[0.08, 32, 32]} />
+            <meshStandardMaterial color="#fca5a5" emissive="#ef4444" emissiveIntensity={0.2} />
+          </mesh>
+
+          {/* HTML Tooltip Bubble */}
+          <Html position={[0, 2.2, 0]} center zIndexRange={[100, 0]}>
+            <div style={{
+              background: 'rgba(255,255,255,0.95)',
+              color: '#4f46e5',
+              fontSize: '11px',
+              fontWeight: 900,
+              textTransform: 'uppercase',
+              letterSpacing: '1px',
+              padding: '8px 16px',
+              borderRadius: '999px',
+              boxShadow: '0 10px 25px rgba(99,102,241,0.3)',
+              border: '2px solid #818cf8',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              pointerEvents: 'none',
+              transform: hovered ? 'scale(1.1) translateY(-5px)' : 'scale(1) translateY(0)',
+              opacity: hovered ? 1 : 0.85,
+              transition: 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)'
+            }}>
+              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#34d399' }} />
+              I'm Berrywise!
+            </div>
+          </Html>
       </group>
     </Float>
   );
@@ -125,9 +149,9 @@ export function BerrywiseVisual() {
         <WiseBerryAvatar hovered={hovered} />
         
         <Sparkles 
-          count={40} 
+          count={30} 
           scale={8} 
-          size={hovered ? 8 : 4} 
+          size={hovered ? 6 : 3} 
           speed={0.8} 
           color={hovered ? "#34d399" : "#fb7185"} 
           opacity={0.8} 
