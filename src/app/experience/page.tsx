@@ -126,12 +126,12 @@ export default function ExperiencePage() {
           </div>
         </motion.section>
 
-        {/* India Space Lab */}
+        {/* Remote Sensing */}
         <motion.section initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
           <div style={{ position: 'absolute', left: '-9px', width: '16px', height: '16px', borderRadius: '50%', background: surface, border: `4px solid ${amber}` }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '16px' }}>
             <div>
-              <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.8rem', fontWeight: 700, color: '#fafaf9', margin: '0 0 8px' }}>India Space Lab</h2>
+              <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.8rem', fontWeight: 700, color: '#fafaf9', margin: '0 0 8px' }}>Remote Sensing</h2>
               <p style={{ fontSize: '15px', color: muted, margin: 0 }}>Geospatial Data Analyst Intern &nbsp;·&nbsp; Feb 2026 - Mar 2026</p>
             </div>
             <a href="https://remote-sensing-gis-ftk4znsyyftydvmnng7iwh.streamlit.app/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', border: `1px solid ${border}`, color: '#a8a29e', borderRadius: '999px', textDecoration: 'none', fontSize: '12px', fontWeight: 500, transition: 'all 0.3s' }} onMouseEnter={e => { e.currentTarget.style.borderColor = amber; e.currentTarget.style.color = amber; }} onMouseLeave={e => { e.currentTarget.style.borderColor = border; e.currentTarget.style.color = '#a8a29e'; }}>

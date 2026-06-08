@@ -99,7 +99,7 @@ const slides: SlideData[] = [
   {
     id: 5,
     subtitle: 'Internship · GIS · Data Science',
-    title: ['India', 'Space Lab'],
+    title: ['Remote', 'Sensing'],
     description:
       'Geospatial Data Analyst Intern (Feb-Mar 2026). Built automated GIS pipelines in Python processing 200+ sq km of satellite imagery across 5+ multispectral datasets. Streamlit dashboard for non-technical stakeholders. Parameterised Jupyter notebooks reducing setup from hours to a config change.',
     tags: ['Python', 'NumPy', 'GeoPandas', 'GDAL', 'Streamlit', 'Jupyter', 'GIS', 'Remote Sensing'],

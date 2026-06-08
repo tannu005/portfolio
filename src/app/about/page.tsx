@@ -32,7 +32,7 @@ export default function AboutPage() {
             Tannu Yadav
           </h1>
           <p style={{ fontSize: '17px', color: '#a8a29e', maxWidth: '38rem', lineHeight: 1.7 }}>
-            Frontend-leaning full-stack developer with production experience building and deploying web applications using React, Next.js, and TypeScript - from AI-driven product interfaces to real-time data pipelines backed by REST APIs and cloud infrastructure. Delivered high-performance financial systems and geospatial platforms across multiple industry internships (Codaphics, Zetheta Algorithms, India Space Lab), and independently architected seven deployed systems integrating Gemini, Groq, live market APIs, and custom firmware.
+            Frontend-leaning full-stack developer with production experience building and deploying web applications using React, Next.js, and TypeScript - from AI-driven product interfaces to real-time data pipelines backed by REST APIs and cloud infrastructure. Delivered high-performance financial systems and geospatial platforms across multiple industry internships (Codaphics, Zetheta Algorithms, Remote Sensing), and independently architected seven deployed systems integrating Gemini, Groq, live market APIs, and custom firmware.
           </p>
         </motion.div>
 
@@ -143,7 +143,7 @@ export default function AboutPage() {
             { skill: 'OpenCV / Deep Learning DNN', context: 'Compiled ScreenGuard\'s real-time computer vision tracker estimating face distance and age' },
             { skill: 'Gemini API + Groq API', context: 'Intelligent LLM routing in Navix - Gemini for accuracy, Groq for speed, 35% token cost reduction' },
             { skill: 'GitHub Actions + Vercel', context: 'Zero-touch CI/CD pipeline - every push automatically linted, built, and deployed in under 60 seconds' },
-            { skill: 'Python + NumPy + GeoPandas', context: 'India Space Lab - automated satellite imagery pipelines processing 200+ sq km of multispectral data' },
+            { skill: 'Python + NumPy + GeoPandas', context: 'Remote Sensing - automated satellite imagery pipelines processing 200+ sq km of multispectral data' },
             { skill: 'ESP32 + MQTT + Arduino', context: 'IoT firmware and device-to-cloud telemetry coordinating with desktop display brightness APIs' },
             { skill: 'TanStack Virtual + Zustand', context: 'Stock Screener\'s state and rendering architecture - windowed rows, memoized filters' },
           ].map((s, i) => (
@@ -168,7 +168,7 @@ export default function AboutPage() {
             { project: 'NewsAI', color: '#ec4899', before: 'Knew database queries, no experience with vector indexing', after: 'Can orchestrate vector search (RAG) with LangChain and construct event-driven background queues via Inngest' },
             { project: 'ScreenGuard', color: '#3b82f6', before: 'Never integrated computer vision with hardware systems or OS APIs', after: 'Can compile ESP32 C++ firmware and coordinate OpenCV Age Net DNNs with Windows display brightness APIs' },
             { project: 'Fin-Flow AI', color: '#e11d48', before: 'Relying on brittle scrapers and multi-page reloads', after: 'Can engineer resilient serverless architectures with true SPA continuity and deterministic DB fallbacks' },
-            { project: 'India Space Lab', color: '#22c55e', before: 'Zero knowledge of GIS, satellite imagery, or geospatial data', after: 'Comfortable with high-volume geospatial data, multispectral imagery, and Python data pipelines' },
+            { project: 'Remote Sensing', color: '#22c55e', before: 'Zero knowledge of GIS, satellite imagery, or geospatial data', after: 'Comfortable with high-volume geospatial data, multispectral imagery, and Python data pipelines' },
           ].map((entry, i) => (
             <motion.div key={entry.project} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
               style={{ background: surface, borderLeft: `3px solid ${entry.color}`, borderRadius: '0 12px 12px 0', padding: '20px 24px' }}>
