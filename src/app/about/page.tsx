@@ -163,6 +163,7 @@ export default function AboutPage() {
           {[
             { project: 'LendSwift', color: '#f59e0b', before: 'Knew React basics, no backend experience', after: 'Can design secure REST APIs with CORS, rate limiting, Prisma ORM, and three-tier architecture from scratch' },
             { project: 'Stock Screener', color: '#f97316', before: 'Knew basic React rendering, no performance engineering', after: 'Can optimize any React app to 60fps at scale using virtual scrolling, Canvas rendering, and memoization' },
+            { project: 'Zetheta Algorithms', color: '#10b981', before: 'Had standard frontend web experience', after: 'Can engineer low-latency BFSI systems, 60fps canvas dashboards, and deeply nested layout engine architectures' },
             { project: 'Navix AI', color: '#a855f7', before: 'Never integrated an LLM API or set up CI/CD', after: 'Can integrate multiple AI providers intelligently and automate the entire deployment pipeline' },
             { project: 'NewsAI', color: '#ec4899', before: 'Knew database queries, no experience with vector indexing', after: 'Can orchestrate vector search (RAG) with LangChain and construct event-driven background queues via Inngest' },
             { project: 'ScreenGuard', color: '#3b82f6', before: 'Never integrated computer vision with hardware systems or OS APIs', after: 'Can compile ESP32 C++ firmware and coordinate OpenCV Age Net DNNs with Windows display brightness APIs' },
