@@ -6,6 +6,7 @@ import {
   Map, Scan, Activity, Zap
 } from 'lucide-react';
 
+import { FinFlowVisual } from './FinFlowVisual';
 import { BerrywiseVisual } from './BerrywiseVisual';
 
 const amber = '#f59e0b';
@@ -62,6 +63,15 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
     rotateX,
     rotateY
   };
+
+  // 101: Fin-Flow AI
+  if (projectId === 101) {
+    return (
+      <div style={containerStyle}>
+        <FinFlowVisual />
+      </div>
+    );
+  }
 
   // 100: BerrywiseVisual
   if (projectId === 100) {

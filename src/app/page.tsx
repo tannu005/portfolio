@@ -61,6 +61,18 @@ const slides: SlideData[] = [
     liveLabel: 'recruitment-pipeline-nagl.vercel.app',
   },
   {
+    id: 101,
+    subtitle: 'Market Intelligence · Serverless · AI',
+    title: ['Fin-Flow', 'AI'],
+    description:
+      'Institutional-grade market intelligence terminal. Features serverless data scraping, deterministic fallback query engines, true SPA continuity, and an executive light theme with luxury deep burgundy accents.',
+    tags: ['React', 'Node.js', 'Express', 'MongoDB Atlas', 'Gemini API', 'Tailwind CSS'],
+    href: '/projects/fin-flow-ai',
+    liveHref: 'https://fin-flow-ai-neon.vercel.app/',
+    githubHref: 'https://github.com/tannu005/fin-flow-ai',
+    liveLabel: 'fin-flow-ai-neon.vercel.app',
+  },
+  {
     id: 3,
     subtitle: 'AI Platform · CI/CD · Vercel',
     title: ['Navix', 'AI'],
@@ -340,6 +352,7 @@ export default function Home() {
           <Link href="/projects/lendswift" data-slide="1">LendSwift</Link>
           <Link href="/projects/stock-screener" data-slide="2">Screener</Link>
           <Link href="/projects/berrywise" data-slide="100">Berrywise</Link>
+          <Link href="/projects/fin-flow-ai" data-slide="101">Fin-Flow AI</Link>
           <Link href="/projects/navix" data-slide="3">Navix</Link>
           <Link href="/projects/newsai" data-slide="4">NewsAI</Link>
           <Link href="/projects/screengard" data-slide="6">ScreenGuard</Link>
