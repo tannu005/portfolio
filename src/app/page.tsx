@@ -356,7 +356,8 @@ export default function Home() {
           <Link href="/projects/navix" data-slide="3">Navix</Link>
           <Link href="/projects/newsai" data-slide="4">NewsAI</Link>
           <Link href="/projects/screengard" data-slide="6">ScreenGuard</Link>
-          <Link href="/experience" data-slide="5">Experience</Link>
+          <Link href="/experience" data-slide="5">Remote Sensing</Link>
+          <Link href="/experience">Experience</Link>
           <Link href="/about">About</Link>
           <a href="https://github.com/tannu005" target="_blank" rel="noopener noreferrer">GitHub↗</a>
         </nav>
