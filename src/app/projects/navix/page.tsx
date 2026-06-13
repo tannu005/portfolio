@@ -59,7 +59,7 @@ export default function NavixPage() {
       {/* Tags */}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
         style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', margin: '28px 0 0' }}>
-        {['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Context API', 'Zustand', 'Gemini API', 'Groq API', 'GitHub Actions', 'Vercel', 'Netlify', 'CI/CD'].map(t => (
+        {['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Context API', 'Zustand', 'Gemini API', 'Groq API', 'GitHub Actions', 'Vercel', 'CI/CD', 'Vitest', 'React Testing Library'].map(t => (
           <span key={t} style={{ padding: '4px 12px', background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.2)', borderRadius: '999px', fontSize: '11px', color: amber, fontWeight: 500 }}>{t}</span>
         ))}
       </motion.div>
@@ -75,6 +75,7 @@ export default function NavixPage() {
           { value: '<1s', label: 'Initial Load' },
           { value: '2', label: 'LLM Providers' },
           { value: '0', label: 'Manual Deploys' },
+          { value: '100%', label: 'Core Test Coverage' },
           { value: '35%', label: 'Token Cost Saved' },
         ].map(m => (
           <div key={m.label} style={{ background: surface, border: `1px solid ${border}`, borderRadius: '12px', padding: '20px 16px', textAlign: 'center' }}>
@@ -114,6 +115,27 @@ export default function NavixPage() {
               <li>Lower token cost</li>
               <li>Ideal for interactive back-and-forth</li>
             </ul>
+          </div>
+        </div>
+      </motion.section>
+
+      <hr style={{ border: 'none', borderTop: `1px solid ${border}`, margin: '48px 0' }} />
+
+      {/* Advanced Frontend Performance */}
+      <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '48px' }}>
+        <h2 style={{ fontFamily: 'var(--font-space),sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fafaf9', marginBottom: '8px' }}>Advanced Frontend Performance & 3D Rendering</h2>
+        <p style={{ color: '#a8a29e', marginBottom: '24px', lineHeight: 1.7, maxWidth: '52rem' }}>
+          Engineered a highly performant HTML5 Canvas rendering engine to scrub through a 180-frame high-resolution 3D scroll animation. This approach bypasses traditional DOM bottlenecks, achieving a flawless 60fps playback bound directly to the user&apos;s scroll-wheel.
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px' }}>
+          <div style={{ background: surface, border: `1px solid ${border}`, borderRadius: '12px', padding: '24px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+              <Zap size={20} color={amber} />
+              <h3 style={{ color: '#fafaf9', fontWeight: 600, margin: 0 }}>Fable-Inspired 3D Spatial Ecosystem</h3>
+            </div>
+            <p style={{ color: '#a8a29e', fontSize: '13px', lineHeight: 1.8, margin: 0 }}>
+              Using GSAP, ScrollTrigger, and raw Trigonometry, I built a custom 3D spatial routing engine. This architecture seamlessly orchestrates complex &quot;Spiral to List&quot; spatial transitions, mathematically calculating component positioning and depth in 3D space to maintain 60fps performance across devices.
+            </p>
           </div>
         </div>
       </motion.section>
@@ -181,6 +203,7 @@ export default function NavixPage() {
           {[
             { title: 'API Provider Trade-offs', desc: 'No single LLM is best for everything. Routing by task type (accuracy vs speed) cut costs 35% and halved chat latency.' },
             { title: 'Component-First Thinking', desc: 'Building the component library first - before any screen - meant each new screen was assembled, not built.' },
+            { title: 'Strict TypeScript Migration', desc: 'Migrated 14 complex, accessible Shadcn UI components into strictly-typed TypeScript. Enforcing strict type safety across the library completely eliminated runtime errors.' },
             { title: 'Automated Deployment', desc: 'CI/CD isn\'t a luxury. Manual deploys are error-prone and mentally draining. Automate everything from day one.' },
             { title: 'Token Cost Engineering', desc: 'Prompt engineering and response caching reduced API token spend. Real-world AI apps must consider unit economics.' },
           ].map(l => (
