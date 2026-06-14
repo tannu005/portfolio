@@ -8,6 +8,7 @@ import {
 
 import { FinFlowVisual } from './FinFlowVisual';
 import { BerrywiseVisual } from './BerrywiseVisual';
+import { DeployGuardVisual } from './DeployGuardVisual';
 
 const amber = '#f59e0b';
 const darkSurface = 'rgba(20, 20, 20, 0.8)';
@@ -78,6 +79,15 @@ export function ProjectVisual({ projectId }: { projectId: number }) {
     return (
       <div style={containerStyle}>
         <BerrywiseVisual />
+      </div>
+    );
+  }
+
+  // 102: DeployGuardVisual
+  if (projectId === 102) {
+    return (
+      <div style={containerStyle}>
+        <DeployGuardVisual />
       </div>
     );
   }

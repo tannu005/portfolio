@@ -119,7 +119,7 @@ p { margin: 0; }
 }
 
 .gsap-nav a {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--muted);
   text-decoration: none;
   text-transform: uppercase;

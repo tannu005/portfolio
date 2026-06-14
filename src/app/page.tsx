@@ -73,6 +73,18 @@ const slides: SlideData[] = [
     liveLabel: 'fin-flow-ai-neon.vercel.app',
   },
   {
+    id: 102,
+    subtitle: 'Enterprise CI/CD · DevSecOps · Salesforce',
+    title: ['Deploy', 'Guard'],
+    description:
+      'Enterprise-grade Salesforce CI/CD Static Analysis & DevSecOps Platform. Parses deployment configurations to detect security vulnerabilities, metadata anomalies, and destructive changes before they hit production.',
+    tags: ['Next.js', 'Node.js', 'BullMQ', 'PostgreSQL', 'Prisma', 'Stripe'],
+    href: '/projects/deployguard',
+    liveHref: 'https://deploy-guard-gamma.vercel.app',
+    githubHref: 'https://github.com/tannu005/DeployGuard',
+    liveLabel: 'deploy-guard-gamma.vercel.app',
+  },
+  {
     id: 3,
     subtitle: 'AI Platform · CI/CD · Vercel',
     title: ['Navix', 'AI'],
@@ -352,7 +364,8 @@ export default function Home() {
           <Link href="/projects/lendswift" data-slide="1">LendSwift</Link>
           <Link href="/projects/stock-screener" data-slide="2">Screener</Link>
           <Link href="/projects/berrywise" data-slide="100">Berrywise</Link>
-          <Link href="/projects/fin-flow-ai" data-slide="101">Fin-Flow AI</Link>
+          <Link href="/projects/fin-flow-ai" data-slide="101">FinFlow</Link>
+          <Link href="/projects/deployguard" data-slide="102">DeployGuard</Link>
           <Link href="/projects/navix" data-slide="3">Navix</Link>
           <Link href="/projects/newsai" data-slide="4">NewsAI</Link>
           <Link href="/projects/screengard" data-slide="6">ScreenGuard</Link>
